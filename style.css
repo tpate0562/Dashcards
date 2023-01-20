@@ -1,3 +1,8 @@
+body {
+    background-attachment: fixed;
+    background-image: linear-gradient(to bottom right, blue, orange);
+}
+
 .btn {
     display: flex;
     justify-content: center;
