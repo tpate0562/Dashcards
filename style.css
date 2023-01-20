@@ -1,6 +1,6 @@
 body {
     background-attachment: fixed;
-    background-image: linear-gradient(to bottom right, blue, orange);
+    background-image: linear-gradient(to bottom right, rgb(111, 111, 228), rgb(255, 170, 13));
 }
 
 .btn {
