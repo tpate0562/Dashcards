@@ -14,11 +14,17 @@ body {
     border-radius: 10px;
     background-color: #1c00bc;
     color: white;
-    font-family: Georgia;
+    font-family: Georgia; /* temp font */
     font-size: 20px;
     padding: 20px 40px;
     margin: 10px 10px;
     cursor: pointer;
+    
+}
+
+button:hover {
+    background-color: #2300e6;
+    transition: 0.2s;
 }
 
 /* why is it not aligning vertically pls help */
