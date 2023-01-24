@@ -7,21 +7,33 @@ function clickButtonOne() {
     optionOne = true;
     num = Math.floor(Math.random() * 35);
     document.getElementById("btn1").innerHTML = terms[Math.floor(Math.random() * 35)];
+    document.getElementById("btn2").innerHTML = terms[Math.floor(Math.random() * 35)];
+    document.getElementById("btn3").innerHTML = terms[Math.floor(Math.random() * 35)];
+    document.getElementById("btn4").innerHTML = terms[Math.floor(Math.random() * 35)];
     num = Math.floor(Math.random() * 35);
     document.getElementById("question").innerHTML = terms[Math.floor(Math.random() * 35)];
 }
 function clickButtonTwo() {
     optionTwo = true;
+    document.getElementById("btn1").innerHTML = terms[Math.floor(Math.random() * 35)];
     document.getElementById("btn2").innerHTML = terms[Math.floor(Math.random() * 35)];
+    document.getElementById("btn3").innerHTML = terms[Math.floor(Math.random() * 35)];
+    document.getElementById("btn4").innerHTML = terms[Math.floor(Math.random() * 35)];
     document.getElementById("question").innerHTML = terms[Math.random(36)];
-}
+} 
 function clickButtonThree() { 
     optionThree = true;
+    document.getElementById("btn1").innerHTML = terms[Math.floor(Math.random() * 35)];
+    document.getElementById("btn2").innerHTML = terms[Math.floor(Math.random() * 35)];
     document.getElementById("btn3").innerHTML = terms[Math.floor(Math.random() * 35)];
+    document.getElementById("btn4").innerHTML = terms[Math.floor(Math.random() * 35)];
     document.getElementById("question").innerHTML = terms[Math.random(36)];
 }
 function clickButtonFour() {
     optionFour = true;
+    document.getElementById("btn1").innerHTML = terms[Math.floor(Math.random() * 35)];
+    document.getElementById("btn2").innerHTML = terms[Math.floor(Math.random() * 35)];
+    document.getElementById("btn3").innerHTML = terms[Math.floor(Math.random() * 35)];
     document.getElementById("btn4").innerHTML = terms[Math.floor(Math.random() * 35)];
     document.getElementById("question").innerHTML = terms[Math.random(36)];
 }
