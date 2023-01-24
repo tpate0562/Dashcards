@@ -4,18 +4,16 @@ option = [];
 
 let buttonDiv = document.getElementById('buttons');
 let buttonChildren = buttonDiv.children;
-
-function displayQuestion() {
-    document.getElementById("question").innerHTML = definitions[Math.floor(Math.random() % 35)];
-}
+let answer = Math.floor(Math.random() * 35);
 
 function clickButton(optionVal) {
     option[optionVal] = true;  
     for (let i = 0; i < buttonChildren.length; i++) {
         buttonChildren[i].innerHTML = terms[Math.floor(Math.random() * 35)];
     }
-    document.getElementById("question").innerHTML = terms[Math.floor(Math.random() * 35)];
-    
+    answer = Math.floor(Math.random() * 35);
+    document.getElementById("question").innerHTML = terms[answer];
+    buttonChildren[Math.floor(Math.random() * 3)].innerHTML = terms[answer];
 }
 
 function processAnswer() {
