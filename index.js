@@ -15,7 +15,7 @@ function clickButtonTwo() {
     document.getElementById("btn2").innerHTML = terms[Math.floor(Math.random() * 35)];
     document.getElementById("question").innerHTML = terms[Math.random(36)];
 }
-function clickButtonThree() {
+function clickButtonThree() { 
     optionThree = true;
     document.getElementById("btn3").innerHTML = terms[Math.floor(Math.random() * 35)];
     document.getElementById("question").innerHTML = terms[Math.random(36)];
