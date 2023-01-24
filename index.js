@@ -10,14 +10,21 @@ function displayQuestion() {
 }
 
 function clickButton(optionVal) {
-    option[optionVal] = true;
-    console.log(optionVal);
+    option[optionVal] = true;  
     for (let i = 0; i < buttonChildren.length; i++) {
         buttonChildren[i].innerHTML = terms[Math.floor(Math.random() * 35)];
     }
     document.getElementById("question").innerHTML = terms[Math.floor(Math.random() * 35)];
+    
 }
 
 function processAnswer() {
-    
+    /*for (let j = 0; j < 4; j++){
+        for (let k = 0; k < 4; k++){
+            while ((j != k) && (buttonChildren[j].innerHTML == buttonChildren.innerHTML[k])){
+                buttonChildren[j].innerHTML = "terms[Math.floor(Math.random() * 35)]";
+                buttonChildren[k].innerHTML = terms[Math.floor(Math.random() * 35)];
+            }
+        }
+    }*/
 }
