@@ -7,7 +7,7 @@ let buttonChildren = buttonDiv.children;
 let answer = Math.floor(Math.random() * 35);
 
 function clickButton(optionVal) {
-    option[optionVal] = true;  
+    option[optionVal] = true;
     for (let i = 0; i < buttonChildren.length; i++) {
         buttonChildren[i].innerHTML = terms[Math.floor(Math.random() * 35)];
     }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Georgia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 
 body {
     background-attachment: fixed;
@@ -6,20 +6,24 @@ body {
     /* background-image: radial-gradient(rgb(4, 45, 157), rgb(64, 116, 237)); */
 }
 
+/* This can be deleted if we change how the grid works */
+.btn1 { grid-area: button1; }
+.btn2 { grid-area: button2; }
+.btn3 { grid-area: button3; }
+.btn4 { grid-area: button4; }
 
-/* TODO: Consistent button sizes regardless of text inside */
+/* TODO: resize text based on button size */
 .btn {
     display: inline-block;
     border: none;
     border-radius: 10px;
     background-color: #1c00bc;
     color: white;
-    font-family: Georgia; /* temp font */
+    font-family: "Roboto Condensed";
     font-size: 20px;
-    padding: 20px 40px;
+    padding: 20px 150px;
     margin: 10px 10px;
     cursor: pointer;
-    
 }
 
 button:hover {
@@ -27,10 +31,14 @@ button:hover {
     transition: 0.2s;
 }
 
-/* why is it not aligning vertically pls help */
+/* THIS GRID ISN'T RIGHT. Needs to have button sizes not based on other text (and still needs vertical centering) */
 .center {
-    display: flex;
+    display: grid;
     align-items: center;
     justify-content: center;
     vertical-align: middle;
+    grid-template-areas: 
+    'button1 button2'
+    'button3 button4';
+    padding: 10px;
 }
