@@ -31,7 +31,7 @@ function clickButton(optionVal) {
     answer = Math.floor(Math.random() * 36);
     buttonChildren[answerPosition].innerHTML = terms[answer];
     while ((answer == button[1]) || (answer == button[2]) || (answer == button[3]) || (answer == button[4])){
-        button[4] = Math.floor(Math.random() * 36);
+        answer = Math.floor(Math.random() * 36);
     }
     document.getElementById("question").innerHTML = definitions[answer];
 }
