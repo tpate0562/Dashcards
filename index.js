@@ -6,30 +6,29 @@ let buttonDiv = document.getElementById('buttons');
 let buttonChildren = buttonDiv.children;
 let answer = Math.floor(Math.random() * 35);
 let button = [];
+let answerPosition;
 
 function clickButton(optionVal) {
     option[optionVal] = true;
 
-    button[1] = Math.floor(Math.random() * 35);
-    button[2] = Math.floor(Math.random() * 35);
+    button[1] = Math.floor(Math.random() * 36);
+    button[2] = Math.floor(Math.random() * 36);
     while (button[2] == button[1]){
-        button[2] = Math.floor(Math.random() * 35);
+        button[2] = Math.floor(Math.random() * 36);
     }
-    button[3] = Math.floor(Math.random() * 35);
+    button[3] = Math.floor(Math.random() * 36);
     while ((button[3] == button[1]) || (button[3] == button[2])){
-        button[3] = Math.floor(Math.random() * 35);
+        button[3] = Math.floor(Math.random() * 36);
     }
-    button[4] = Math.floor(Math.random() * 35);
+    button[4] = Math.floor(Math.random() * 36);
     while ((button[4] == button[1]) || (button[4] == button[2]) || (button[4] == button[3])){
-        button[4] = Math.floor(Math.random() * 35);
+        button[4] = Math.floor(Math.random() * 36);
     }
     for (let i = 0; i < 4; i++){
         buttonChildren[i].innerHTML = terms[button[i+1]];
     }
-    /*for (let i = 0; i < buttonChildren.length; i++) {
-        buttonChildren[i].innerHTML = terms[Math.floor(Math.random() * 35)];
-    }
-    answer = Math.floor(Math.random() * 35);
+    /*
+    answerPosition = Math.floor(Math.random() * 4);
     document.getElementById("question").innerHTML = terms[answer];
     buttonChildren[Math.floor(Math.random() * 3)].innerHTML = terms[answer];*/
 }
