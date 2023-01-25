@@ -4,9 +4,9 @@ option = [];
 
 let buttonDiv = document.getElementById('buttons');
 let buttonChildren = buttonDiv.children;
-let answer = Math.floor(Math.random() * 35);
+let answer = Math.floor(Math.random() * 36);
 let button = [];
-let answerPosition;
+let answerPosition = 0;
 
 function clickButton(optionVal) {
     option[optionVal] = true;
@@ -27,10 +27,13 @@ function clickButton(optionVal) {
     for (let i = 0; i < 4; i++){
         buttonChildren[i].innerHTML = terms[button[i+1]];
     }
-    /*
     answerPosition = Math.floor(Math.random() * 4);
-    document.getElementById("question").innerHTML = terms[answer];
-    buttonChildren[Math.floor(Math.random() * 3)].innerHTML = terms[answer];*/
+    answer = Math.floor(Math.random() * 36);
+    buttonChildren[answerPosition].innerHTML = terms[answer];
+    while ((answer == button[1]) || (answer == button[2]) || (answer == button[3]) || (answer == button[4])){
+        button[4] = Math.floor(Math.random() * 36);
+    }
+    document.getElementById("question").innerHTML = definitions[answer];
 }
 
 function processAnswer() {
