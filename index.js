@@ -12,18 +12,11 @@ function clickButton(optionVal) {
     option[optionVal] = true;
 
     button[1] = Math.floor(Math.random() * 36);
-    button[2] = Math.floor(Math.random() * 36);
-    while (button[2] == button[1]){
-        button[2] = Math.floor(Math.random() * 36);
-    }
-    button[3] = Math.floor(Math.random() * 36);
-    while ((button[3] == button[1]) || (button[3] == button[2])){
-        button[3] = Math.floor(Math.random() * 36);
-    }
-    button[4] = Math.floor(Math.random() * 36);
-    while ((button[4] == button[1]) || (button[4] == button[2]) || (button[4] == button[3])){
-        button[4] = Math.floor(Math.random() * 36);
-    }
+    button[2] = generateButtonVal(button[1]);
+    button[3] = generateButtonVal([button[1], button[2]]);
+    button[4] = generateButtonVal([button[1], button[2], button[3]]);
+
+
     for (let i = 0; i < 4; i++){
         buttonChildren[i].innerHTML = terms[button[i+1]];
     }
@@ -34,9 +27,22 @@ function clickButton(optionVal) {
     while ((answer == button[1]) || (answer == button[2]) || (answer == button[3]) || (answer == button[4])){
         answer = Math.floor(Math.random() * 36);
         document.getElementById("question").innerHTML = definitions[answer];
+        console.log(answer);
+        buttonChildren[answerPosition].innerHTML = terms[answer];
     }
+    console.log(answerPosition);
 }
+
 
 function processAnswer() {
     
+}
+
+function generateButtonVal(exclude) {
+    let random;
+    while (!random) {
+        const x = Math.floor(Math.random() * 36)
+        if (String(exclude).indexOf(String(x)) === -1) random = x;
+    }
+    return random;
 }
