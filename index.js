@@ -15,7 +15,7 @@ function clickButton(optionVal) {
     option[optionVal] = true;
 
     for (let i = 0; i < 4; i++) {
-        let generate_index = generateButtonVal();
+        let generate_index = Math.floor(Math.random() * 36);
         while (button.includes(generate_index)) {
             generate_index = Math.floor(Math.random() * 36);
         }
@@ -52,20 +52,3 @@ function processAnswer(optionVal) {
         incorrect++;
     }
 }
-
-/*  --just wanna keep this in case new method doesn't work lol--
-
-
-    button[1] = Math.floor(Math.random() * 36);
-    button[2] = generateButtonVal(button[1]);
-    button[3] = generateButtonVal([button[1], button[2]]);
-    button[4] = generateButtonVal([button[1], button[2], button[3]]);
-
-function generateButtonVal(exclude) {
-    let random;
-    while (!random) {
-        const x = Math.floor(Math.random() * 36)
-        if (String(exclude).indexOf(String(x)) === -1) random = x;
-    }
-    return random;
-}*/
