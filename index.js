@@ -7,6 +7,9 @@ let buttonChildren = buttonDiv.children;
 let answer = Math.floor(Math.random() * 36);
 let button = [];
 let answerPosition = 0;
+let correct = 0;
+let incorrect = 0;
+let answerPositionComparable = 0;
 
 function clickButton(optionVal) {
     option[optionVal] = true;
@@ -15,8 +18,7 @@ function clickButton(optionVal) {
     button[2] = generateButtonVal(button[1]);
     button[3] = generateButtonVal([button[1], button[2]]);
     button[4] = generateButtonVal([button[1], button[2], button[3]]);
-
-
+    answerPositionComparable = answerPosition;
     for (let i = 0; i < 4; i++){
         buttonChildren[i].innerHTML = terms[button[i+1]];
     }
@@ -30,12 +32,21 @@ function clickButton(optionVal) {
         console.log(answer);
         buttonChildren[answerPosition].innerHTML = terms[answer];
     }
-    console.log(answerPosition);
+    processAnswer(optionVal);
 }
 
 
-function processAnswer() {
-    
+function processAnswer(optionVal) {
+    if ((optionVal == answerPositionComparable)){
+        console.log("Correct!");
+        document.getElementById("rsp").innerHTML = "Correct";
+        correct++;
+    }
+    else{
+        console.log("Incorrect!");
+        document.getElementById("rsp").innerHTML = "Incorrect";
+        incorrect++;
+    }
 }
 
 function generateButtonVal(exclude) {
