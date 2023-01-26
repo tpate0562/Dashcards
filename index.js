@@ -30,12 +30,11 @@ function clickButton(optionVal) {
     answerPosition = Math.floor(Math.random() * 4);
     answer = Math.floor(Math.random() * 36);
     buttonChildren[answerPosition].innerHTML = terms[answer];
+    document.getElementById("question").innerHTML = definitions[answer];
     while ((answer == button[1]) || (answer == button[2]) || (answer == button[3]) || (answer == button[4])){
         answer = Math.floor(Math.random() * 36);
         document.getElementById("question").innerHTML = definitions[answer];
-        buttonChildren[answerPosition].innerHTML = terms[answer];
     }
-    
 }
 
 function processAnswer() {
