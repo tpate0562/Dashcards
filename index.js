@@ -14,19 +14,23 @@ let answerPositionComparable = 0;
 function clickButton(optionVal) {
     option[optionVal] = true;
 
-    button[1] = Math.floor(Math.random() * 36);
-    button[2] = generateButtonVal(button[1]);
-    button[3] = generateButtonVal([button[1], button[2]]);
-    button[4] = generateButtonVal([button[1], button[2], button[3]]);
-    answerPositionComparable = answerPosition;
-    for (let i = 0; i < 4; i++){
-        buttonChildren[i].innerHTML = terms[button[i+1]];
+    for (let i = 0; i < 4; i++) {
+        let generate_index = generateButtonVal();
+        while (button.includes(generate_index)) {
+            generate_index = Math.floor(Math.random() * 36);
+        }
+        button[i] = generate_index;
     }
+    answerPositionComparable = answerPosition;
+    for (let i = 0; i < 4; i++) {
+        buttonChildren[i].innerHTML = terms[button[i]];
+    }
+
     answerPosition = Math.floor(Math.random() * 4);
     answer = Math.floor(Math.random() * 36);
     buttonChildren[answerPosition].innerHTML = terms[answer];
     document.getElementById("question").innerHTML = definitions[answer];
-    while ((answer == button[1]) || (answer == button[2]) || (answer == button[3]) || (answer == button[4])){
+    while (button.includes(answer)) {
         answer = Math.floor(Math.random() * 36);
         document.getElementById("question").innerHTML = definitions[answer];
         console.log(answer);
@@ -37,17 +41,25 @@ function clickButton(optionVal) {
 
 
 function processAnswer(optionVal) {
-    if ((optionVal == answerPositionComparable)){
+    if (optionVal == answerPositionComparable) {
         console.log("Correct!");
         document.getElementById("rsp").innerHTML = "Correct";
         correct++;
     }
-    else{
+    else {
         console.log("Incorrect!");
         document.getElementById("rsp").innerHTML = "Incorrect";
         incorrect++;
     }
 }
+
+/*  --just wanna keep this in case new method doesn't work lol--
+
+
+    button[1] = Math.floor(Math.random() * 36);
+    button[2] = generateButtonVal(button[1]);
+    button[3] = generateButtonVal([button[1], button[2]]);
+    button[4] = generateButtonVal([button[1], button[2], button[3]]);
 
 function generateButtonVal(exclude) {
     let random;
@@ -56,4 +68,4 @@ function generateButtonVal(exclude) {
         if (String(exclude).indexOf(String(x)) === -1) random = x;
     }
     return random;
-}
+}*/
