@@ -11,7 +11,7 @@ let correct = 0;
 let incorrect = -1;
 let answerPositionComparable = 0;
 let totalAnswered = -1;
-
+let answerAccuracy = 0;
 function clickButton(optionVal) {
     option[optionVal] = true;
 
@@ -70,5 +70,6 @@ function animCall(id, anim, duration) {
 }
 
 function processStats(){
-    
+    answerAccuracy = 100* correct/incorrect;
+    document.getElementById("ansacc").innerHTML = answerAccuracy.toPrecision(2) + "%";
 };
