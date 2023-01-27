@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
 body {
     margin: 0;
     padding: 0;
@@ -31,6 +32,7 @@ body {
     font-size: 22px;
     color: #ffffff;
     border-radius: 5px;
+    user-select: none;
     cursor: pointer;
 }
 
@@ -43,9 +45,9 @@ body {
 }
 
 .header a:hover {
-    background: -webkit-linear-gradient(0deg, #ffb444, #ffffff); /* might just change to standard button hover look y'know */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: linear-gradient(90deg, #ffb444, #ffffff); /* might just change to standard button hover look y'know */
+    background-clip: text;
+    color: transparent;
     transition: 0.5s;
 }
 
@@ -54,9 +56,9 @@ body {
     font-size: 40px;
     font-weight: bold;
     font-style: italic;
-    background: -webkit-linear-gradient(0deg, #ffb444, #ffffff, #ffffff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: linear-gradient(90deg, #ffb444, #ffffff, #ffffff);
+    background-clip: text;
+    color: #00000000;
 }
 
 /* This can be deleted if we change how the grid works */
@@ -100,4 +102,5 @@ button:hover {
     display: flex;
     justify-content: center;
     font-family: "Inter";
+    color: #ffffff;
 }
