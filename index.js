@@ -8,9 +8,9 @@ let answer = Math.floor(Math.random() * terms.length);
 let button = [];
 let answerPosition = 5;
 let correct = 0;
-let incorrect = 0;
+let incorrect = -1;
 let answerPositionComparable = 0;
-let totalAnswered = 0;
+let totalAnswered = -1;
 
 function clickButton(optionVal) {
     option[optionVal] = true;
@@ -42,6 +42,7 @@ function clickButton(optionVal) {
 
 
 function processAnswer(optionVal) {
+    totalAnswered++;
     if (optionVal == answerPositionComparable) {
         console.log("Correct!");
         document.getElementById("rsp").innerHTML = "Correct";
@@ -52,4 +53,9 @@ function processAnswer(optionVal) {
         document.getElementById("rsp").innerHTML = "Incorrect";
         incorrect++;
     }
+    document.getElementById("rspc").innerHTML = correct;
+    document.getElementById("rspi").innerHTML = incorrect;
+    processStats();
 }
+
+function processStats();
