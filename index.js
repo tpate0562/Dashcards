@@ -12,7 +12,7 @@ let incorrect = -1;
 let answerPositionComparable = 0;
 let totalAnswered = -1;
 let answerAccuracy = 0;
-let trailingTwentyFive = [0,];
+let trailingTwentyFive = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 let trailingTwentyFivePosition = totalAnswered % 25;
 let trailingTwentyFiveDenominator = 0;
 let summationTTF = 0;
@@ -94,7 +94,8 @@ function processStats(optionVal){
     }    
     for (let i = 0; i < 25; i++){
         summationTTF += trailingTwentyFive[i];
-        console.log(summationTTF);
     }
-    document.getElementById("ttf").innerHTML = summationTTF;
+    console.log(summationTTF);
+    document.getElementById("ttf").innerHTML = "  " + summationTTF + " of the last 25 were correct";
+    summationTTF = 0;
 };
