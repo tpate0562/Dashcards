@@ -12,8 +12,11 @@ let incorrect = -1;
 let answerPositionComparable = 0;
 let totalAnswered = -1;
 let answerAccuracy = 0;
+let trailingTwentyFive = []
+let trailingTwentyFivePosition = totalAnswered % 25;
+let trailingTwentyFiveDenominator = 0;
+
 function clickButton(optionVal) {
-    option[optionVal] = true;
 
     for (let i = 0; i < 4; i++) {
         let generate_index = Math.floor(Math.random() * terms.length);
@@ -70,6 +73,17 @@ function animCall(id, anim, duration) {
 }
 
 function processStats(){
-    answerAccuracy = 100* correct/incorrect;
-    document.getElementById("ansacc").innerHTML = answerAccuracy.toPrecision(2) + "%";
+    answerAccuracy = 100* correct/totalAnswered;
+    if (incorrect == 0){
+        answerAccuracy = 100;
+    }
+    document.getElementById("ansacc").innerHTML = "Score: " + answerAccuracy.toPrecision(3) + "%";
+    trailingTwentyFive.length = 25;
+    if (totalAnswered < 25){
+        trailingTwentyFiveDenominator = totalAnswered;
+    }
+    else{
+        trailingTwentyFiveDenominator = 25;
+    }
+    
 };
