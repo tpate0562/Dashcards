@@ -46,16 +46,27 @@ function processAnswer(optionVal) {
     if (optionVal == answerPositionComparable) {
         console.log("Correct!");
         document.getElementById("rsp").innerHTML = "Correct";
+        animCall("#rsp", 'rsp-correct', 300);
+        animCall("#rspc", 'counteranim', 200);
         correct++;
     }
     else {
         console.log("Incorrect!");
         document.getElementById("rsp").innerHTML = "Incorrect";
+        animCall("#rsp", 'rsp-incorrect', 300);
+        animCall("#rspi", 'counteranim', 200);
         incorrect++;
     }
     document.getElementById("rspc").innerHTML = correct;
     document.getElementById("rspi").innerHTML = incorrect;
     processStats();
+}
+
+function animCall(id, anim, duration) {
+    $(id).addClass(anim);
+    setTimeout(function() {
+        $(id).removeClass(anim);
+    }, duration);
 }
 
 function processStats(){

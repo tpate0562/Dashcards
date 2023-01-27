@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
 
+html, body { height: 100%; }
+
 body {
     margin: 0;
     padding: 0;
@@ -74,6 +76,7 @@ body {
     border-radius: 10px;
     background-color: #1c00bc;
     color: #ffffff;
+    text-decoration: none;
     font-family: "Roboto Condensed";
     font-size: 20px;
     padding: 20px 150px;
@@ -98,9 +101,52 @@ button:hover {
     padding: 10px;
 }
 
+.counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Inter";
+    font-size: 36px;
+    color: #ffffff;
+}
+
+#rspc, #rspi {
+    margin: 20px;
+}
+
+.counteranim {
+    animation: scorescale 0.2s 1;
+    animation-timing-function: ease-out;
+}
+
+@keyframes scorescale {
+    0% {transform: scale(1.2)}
+    100% {transofrm: scale(1.0)}
+}
+
 #question, #rsp {
     display: flex;
     justify-content: center;
     font-family: "Inter";
     color: #ffffff;
+}
+
+.rsp-correct {
+    animation: correctflash 0.3s 1;
+    animation-timing-function: ease-out;
+}
+ 
+@keyframes correctflash {
+    0% {color: #00ff62}
+    100% {color: #ffffff}
+}
+
+.rsp-incorrect {
+    animation: incorrectflash 0.3s 1;
+    animation-timing-function: ease-out;
+}
+
+@keyframes incorrectflash {
+    0% {color: #ff0000}
+    100% {color: #ffffff}
 }
