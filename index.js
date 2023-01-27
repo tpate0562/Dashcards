@@ -58,4 +58,6 @@ function processAnswer(optionVal) {
     processStats();
 }
 
-function processStats();
+function processStats(){
+    
+};
