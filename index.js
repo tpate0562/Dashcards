@@ -12,9 +12,10 @@ let incorrect = -1;
 let answerPositionComparable = 0;
 let totalAnswered = -1;
 let answerAccuracy = 0;
-let trailingTwentyFive = []
+let trailingTwentyFive = [0,];
 let trailingTwentyFivePosition = totalAnswered % 25;
 let trailingTwentyFiveDenominator = 0;
+let summationTTF = 0;
 
 function clickButton(optionVal) {
 
@@ -62,7 +63,7 @@ function processAnswer(optionVal) {
     }
     document.getElementById("rspc").innerHTML = correct;
     document.getElementById("rspi").innerHTML = incorrect;
-    processStats();
+    processStats(optionVal);
 }
 
 function animCall(id, anim, duration) {
@@ -72,7 +73,7 @@ function animCall(id, anim, duration) {
     }, duration);
 }
 
-function processStats(){
+function processStats(optionVal){
     answerAccuracy = 100* correct/totalAnswered;
     if (incorrect == 0){
         answerAccuracy = 100;
@@ -85,5 +86,15 @@ function processStats(){
     else{
         trailingTwentyFiveDenominator = 25;
     }
-    
+    if (optionVal == answerPositionComparable){
+        trailingTwentyFive[totalAnswered % 25] = 1;
+    }
+    else{
+        trailingTwentyFive[totalAnswered % 25] = 0;
+    }    
+    for (let i = 0; i < 25; i++){
+        summationTTF += trailingTwentyFive[i];
+        console.log(summationTTF);
+    }
+    document.getElementById("ttf").innerHTML = summationTTF;
 };
