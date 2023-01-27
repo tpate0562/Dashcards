@@ -8,10 +8,11 @@
 </head>
 <body>
     <div class="header">
-        <a id="logo">Dashcards</a>
-        <a style="margin-right: 25px">About</a>
-        <a>Load Deck</a>
-        <a>Create Deck</a>
+        <a href="index.html" id="logo">Dashcards</a>
+        <a href="about.html" style="margin-right: 25px">About</a>
+        <a href="createdeck.html">Create Deck</a>
+        <a><label for="upload">Load Deck</label>
+        <input type="file" id="upload" name="userdeck"></a>
     </div>
     <h2 id="question">Click a button to start</h2> <!-- change this attribute type later -->
     <div class="center" id="buttons">
@@ -21,8 +22,6 @@
         <button class="btn" id="btn4" onclick="clickButton(3)">wordFourFromList</button>
     </div>
     <h4 id="rsp"></h4>
-    <!-- TEST BUTTON TO BE IMPLEMENTED LATER ON ANOTHER PAGE -->
-    <!-- <a class="btn" href="flashcardDeck.txt" download="testName" target="_blank">Download</a> -->
 
     <script src="index.js"></script>
 </body>

@@ -7,7 +7,7 @@ body {
     background-image: linear-gradient(180deg, #4949c2, #6f6fe4, #ffb444);
     min-height: 100vh;
     background-repeat: no-repeat;
-    overflow-y: hidden;
+    overflow: hidden;
     box-sizing: border-box;
 
     /* background-image: radial-gradient(rgb(4, 45, 157), rgb(64, 116, 237)); */
@@ -26,11 +26,20 @@ body {
     padding: 12px;
     line-height: 22px;
     text-align: center;
+    text-decoration: none;
     font-family: "Roboto Condensed";
     font-size: 22px;
     color: #ffffff;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.header label {
+    cursor: pointer;
+}
+
+.header input {
+    display: none;
 }
 
 .header a:hover {
