@@ -6,10 +6,11 @@ let buttonDiv = document.getElementById('buttons');
 let buttonChildren = buttonDiv.children;
 let answer = Math.floor(Math.random() * terms.length);
 let button = [];
-let answerPosition = 0;
+let answerPosition = 5;
 let correct = 0;
 let incorrect = 0;
 let answerPositionComparable = 0;
+let totalAnswered = 0;
 
 function clickButton(optionVal) {
     option[optionVal] = true;
