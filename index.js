@@ -78,7 +78,7 @@ function processStats(optionVal){
     if (incorrect == 0){
         answerAccuracy = 100;
     }
-    document.getElementById("ansacc").innerHTML = "Score: " + answerAccuracy.toPrecision(3) + "%";
+    document.getElementById("ansacc").innerHTML = "Score: " + answerAccuracy.toPrecision(3) + "% ";
     trailingTwentyFive.length = 25;
     if (totalAnswered < 25){
         trailingTwentyFiveDenominator = totalAnswered;
