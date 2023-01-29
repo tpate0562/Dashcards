@@ -15,6 +15,7 @@ let trailingTwentyFive = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 let trailingTwentyFivePosition = totalAnswered % 25;
 let trailingTwentyFiveDenominator = 0;
 let summationTTF = 0;
+let piggyBackingPrevention = [];
 
 function clickButton(optionVal) {
 
@@ -25,15 +26,16 @@ function clickButton(optionVal) {
         }
         button[i] = generate_index;
     }
-    answerPositionComparable = answerPosition;
+    answerPositionComparable = answerPosition; // Seems uncessary at first but comes in handy in processAnswer()
     for (let i = 0; i < 4; i++) {
         buttonChildren[i].innerHTML = terms[button[i]];
     }
-
-    answerPosition = Math.floor(Math.random() * 4);
-    answer = Math.floor(Math.random() * terms.length);
-    buttonChildren[answerPosition].innerHTML = terms[answer];
-    document.getElementById("question").innerHTML = definitions[answer];
+    if (true /* ANSWER CHOICE AND QUESTION DISPLAY*/ ){
+        answerPosition = Math.floor(Math.random() * 4);
+        answer = Math.floor(Math.random() * terms.length);
+        buttonChildren[answerPosition].innerHTML = terms[answer];
+        document.getElementById("question").innerHTML = definitions[answer];
+    }
     while (button.includes(answer)) {
         answer = Math.floor(Math.random() * terms.length);
         document.getElementById("question").innerHTML = definitions[answer];
@@ -42,7 +44,6 @@ function clickButton(optionVal) {
     }
     processAnswer(optionVal);
 }
-
 
 function processAnswer(optionVal) {
     totalAnswered++;
