@@ -16,7 +16,6 @@ let trailingTwentyFive = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 let trailingTwentyFivePosition = totalAnswered % 25;
 let trailingTwentyFiveDenominator = 0;
 let summationTTF = 0;
-let piggyBackingPrevention = [];
 
 function clickButton(optionVal) {
     totalAnswered++;
