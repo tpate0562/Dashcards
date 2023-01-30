@@ -19,7 +19,7 @@ let summationTTF = 0;
 let piggyBackingPrevention = [];
 
 function clickButton(optionVal) {
-
+    totalAnswered++;
     for (let i = 0; i < 4; i++) {
         let generate_index = Math.floor(Math.random() * terms.length);
         while (button.includes(generate_index)) {
@@ -27,6 +27,15 @@ function clickButton(optionVal) {
         }
         button[i] = generate_index;
     }
+    questionOrder.length = terms.length;
+    console.log(questionOrder);
+    if (totalAnswered % questionOrder.length == 0){
+        for(let i = 0; i < questionOrder.length; i++){
+            questionOrder[i] = i;
+        }
+        shuffle(questionOrder);
+    }
+    console.log(questionOrder);
     answerPositionComparable = answerPosition; // Seems uncessary at first but comes in handy in processAnswer()
     for (let i = 0; i < 4; i++) {
         buttonChildren[i].innerHTML = terms[button[i]];
@@ -44,13 +53,6 @@ function clickButton(optionVal) {
         buttonChildren[answerPosition].innerHTML = terms[answer];
     }
     processAnswer(optionVal);
-    questionOrder.length = terms.length;
-    if (totalAnswered % questionOrder.length == 0){
-        for(let i = 0; i < questionOrder.length; i++){
-            questionOrder[i] = i;
-        }
-        shuffle(questionOrder);
-    }
 }
 
 function shuffle(array) {
@@ -59,7 +61,6 @@ function shuffle(array) {
   
 
 function processAnswer(optionVal) {
-    totalAnswered++;
     if (optionVal == answerPositionComparable) {
         console.log("Correct!");
         document.getElementById("rsp").innerHTML = "Correct";
@@ -69,7 +70,9 @@ function processAnswer(optionVal) {
     }
     else {
         console.log("Incorrect!");
-        document.getElementById("rsp").innerHTML = "Incorrect";
+        if (totalAnswered != 0){
+            document.getElementById("rsp").innerHTML = "Incorrect";
+        }
         animCall("#rsp", 'rsp-incorrect', 300);
         animCall("#rspi", 'counteranim', 200);
         incorrect++;
