@@ -49,6 +49,7 @@ body {
 .header a:hover {
     background: linear-gradient(90deg, #ffb444, #ffffff); /* might just change to standard button hover look y'know */
     background-clip: text;
+    -webkit-background-clip: text;
     color: transparent;
     transition: 0.5s;
 }
@@ -60,6 +61,7 @@ body {
     font-style: italic;
     background: linear-gradient(90deg, #ffb444, #ffffff, #ffffff);
     background-clip: text;
+    -webkit-background-clip: text;
     color: #00000000;
 }
 
@@ -113,7 +115,12 @@ button:hover {
 #rspc, #rspi {
     margin: 20px;
 }
-
+.ttf {
+    display: flex;
+    justify-content: center;
+    font-family: "Inter";
+    color: #ffffff;
+}
 .counteranim {
     animation: scorescale 0.2s 1;
     animation-timing-function: ease-out;
