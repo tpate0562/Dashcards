@@ -111,6 +111,6 @@ function processStats(optionVal){
         summationTTF += trailingTwentyFive[i];
     }
     console.log(summationTTF);
-    document.getElementById("ttf").innerHTML = "  " + summationTTF + " of the last 25 were correct";
+    document.getElementById("ttf").innerHTML = "  " + summationTTF + " of the last " + trailingTwentyFiveDenominator +" were correct";
     summationTTF = 0;
 };
