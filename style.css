@@ -120,6 +120,7 @@ button:hover {
     justify-content: center;
     font-family: "Inter";
     color: #ffffff;
+    font-size: 40px;
 }
 .counteranim {
     animation: scorescale 0.2s 1;
