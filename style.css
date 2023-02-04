@@ -133,6 +133,8 @@ button:hover {
 }
 
 #question, #rsp {
+    text-align: center;
+    padding: 10px;
     display: flex;
     justify-content: center;
     font-family: "Inter";
