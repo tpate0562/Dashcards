@@ -50,6 +50,7 @@ body {
     background: linear-gradient(90deg, #ffb444, #ffffff); /* might just change to standard button hover look y'know */
     background-clip: text;
     -webkit-background-clip: text;
+    -moz-background-clip: text;
     color: transparent;
     transition: 0.5s;
 }
@@ -84,6 +85,7 @@ body {
     padding: 20px 150px;
     margin: 10px 10px;
     cursor: pointer;
+    user-select: none;
 }
 
 button:hover {
@@ -157,4 +159,35 @@ button:hover {
 @keyframes incorrectflash {
     0% {color: #ff0000}
     100% {color: #ffffff}
+}
+
+
+
+
+
+/**************************************************************************************************************************************
+createdeck.html-SPECIFIC STYLES GO DOWN HERE. I know it's probably a bad idea to put it all on one stylesheet but we can fix that later.
+***************************************************************************************************************************************/
+
+
+/*AAAAAAAAAAAAAAAAAAA HOW DO YOU VERTICALLY CENTER THINGS*/
+#deck-input {
+    font-family: "Roboto Condensed";
+    font-size: 20px;
+    color: #ffffff;
+}
+
+input[type=text] {
+    width: 20%;
+    padding: 10px 15px;
+    margin: 10px;
+    box-sizing: border-box;
+    border: 3px solid #000000;
+    border-radius: 4px;
+    border: 3px solid;
+    outline: none;
+}
+
+::placeholder {
+    font-family: "Roboto Condensed";
 }

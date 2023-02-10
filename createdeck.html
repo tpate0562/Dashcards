@@ -2,6 +2,8 @@
 <html lang="en-US">
 <head>
     <title>UFA - Unnamed Flashcard Application</title>
+
+    <!--TODO: THIS NEEDS TO CHANGE, YOU NEED TO BE ABLE TO SCROLL (style.css doesn't let you)-->
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
 </head>
@@ -12,8 +14,16 @@
     <a href="index.html">Home</a>
 </div>
 
-
-<!--<a class="btn" href="flashcardDeck()" download="testName" target="_blank">Download</a>-->
-<a class="btn" onclick="downloadDeck('test', 'testaa.txt')">Download</a>
+<!--TODO: make list element for term inputs. So they're labeled 1, 2, etc-->
+<div id="deck-input">
+    <label for="title">Dashcard Deck Title:</label>
+    <input type="text" id="title" placeholder="Title"><br>
+    <input type="text" id="term1" placeholder="Term">
+    <input type="text" id="term1" placeholder="Definition"><br>
+</div>
+<div>
+    <button class="btn" onclick="addTermInput()">Additional Dashcard</button><br>
+    <a class="btn" onclick="downloadDeck()">Download</a>
+</div>
 
 <script src="createdeck.js"></script>
