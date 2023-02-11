@@ -25,7 +25,7 @@ function downloadDeck() {
 
 }
 
-//TODO: create id for each new input with new number. maybe animate?? that'd be dumb
+//TODO: maybe animate?? that'd be dumb
 function addTermInput() {
     let newTerm = document.createElement("input");
     newTerm.setAttribute("type", "text");
