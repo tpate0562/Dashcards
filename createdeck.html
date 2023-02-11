@@ -17,12 +17,12 @@
 <!--TODO: make list element for term inputs. So they're labeled 1, 2, etc-->
 <div id="deck-input">
     <label for="title">Dashcard Deck Title:</label>
-    <input type="text" id="title" placeholder="Title"><br>
-    <input type="text" id="term1" placeholder="Term">
-    <input type="text" id="term1" placeholder="Definition"><br>
+    <input type="text" id="title" autocomplete="off"placeholder="Title"><br>
+    <input type="text" id="input1" autocomplete="off" placeholder="Term">
+    <input type="text" id="input2" autocomplete="off" placeholder="Definition"><br>
 </div>
 <div>
-    <button class="btn" onclick="addTermInput()">Additional Dashcard</button><br>
+    <button class="btn" onclick="addTermInput()">Add a card</button><br>
     <a class="btn" onclick="downloadDeck()">Download</a>
 </div>
 
