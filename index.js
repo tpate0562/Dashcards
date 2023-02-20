@@ -82,7 +82,7 @@ function clickButton(optionVal) {
     }
     if (true /* ANSWER CHOICE AND QUESTION DISPLAY*/ ){
         answerPosition = Math.floor(Math.random() * 4);
-        answer = Math.floor(Math.random() * questionOrder[totalAnswered % terms.length]);
+        answer = questionOrder[totalAnswered % terms.length];
         buttonChildren[answerPosition].innerHTML = terms[answer];
         document.getElementById("question").innerHTML = definitions[answer];
     }
