@@ -10,9 +10,9 @@ let buttonChildren = buttonDiv.children;
 
 let answer = Math.floor(Math.random() * terms.length);
 let button = [];
-let answerPosition = 5;
+let answerPosition;
 let correct = 0;
-let incorrect = -1;
+let incorrect = 0;
 let answerPositionComparable = 0;
 let totalAnswered = 0;
 let answerAccuracy = 0;
@@ -26,6 +26,14 @@ function startQuiz() {
     document.getElementById("buttons").style.removeProperty("display");
     document.getElementById("startbutton").style.display = "none";
     document.getElementById("rsp").style.display = "flex";
+
+    setButtonTerms();
+    setNewAnswer();
+
+    document.getElementById("rsp-correct").innerHTML = correct;
+    document.getElementById("rsp-incorrect").innerHTML = incorrect;
+    document.getElementById("answeraccuracy").innerHTML = "Score: " + answerAccuracy.toPrecision(3) + "% ";
+    document.getElementById("ttf").innerHTML = "  " + summationTTF + " of the last " + trailingTwentyFiveDenominator + " were correct";
 }
 
 function getDeck() {
@@ -85,6 +93,12 @@ function resetQuiz() {
 function clickButton(optionVal) {
     totalAnswered++;
 
+    setButtonTerms();
+    setNewAnswer();
+    processAnswer(optionVal);
+}
+
+function setButtonTerms() {
     //generates a unique index position in terms[] for each button to display
     for (let i = 0; i < 4; i++) {
         let generate_index = Math.floor(Math.random() * terms.length);
@@ -109,8 +123,10 @@ function clickButton(optionVal) {
     for (let i = 0; i < 4; i++) {
         buttonChildren[i].innerHTML = terms[button[i]];
     }
-    
-    /* ANSWER CHOICE AND QUESTION DISPLAY*/
+}
+
+/* ANSWER CHOICE AND QUESTION DISPLAY*/
+function setNewAnswer() {
     {
         answerPosition = Math.floor(Math.random() * 4);
         answer = questionOrder[totalAnswered % terms.length];
@@ -123,7 +139,6 @@ function clickButton(optionVal) {
         console.log(answer);
         buttonChildren[answerPosition].innerHTML = terms[answer];
     }
-    processAnswer(optionVal);
 }
 
 function shuffle(array) {
@@ -135,8 +150,8 @@ function processAnswer(optionVal) {
     if (optionVal == answerPositionComparable) {
         console.log("Correct!");
         document.getElementById("rsp").innerHTML = "Correct";
-        animCall("#rsp", 'rsp-correct', 300);
-        animCall("#rspc", 'counteranim', 200);
+        animCall("#rsp", 'rsp-correct-anim', 300);
+        animCall("#rspc", 'counter-anim', 200);
         correct++;
     }
     else {
@@ -144,12 +159,12 @@ function processAnswer(optionVal) {
         if (totalAnswered != 0){
             document.getElementById("rsp").innerHTML = "Incorrect";
         }
-        animCall("#rsp", 'rsp-incorrect', 300);
-        animCall("#rspi", 'counteranim', 200);
+        animCall("#rsp", 'rsp-incorrect-anim', 300);
+        animCall("#rspi", 'counter-anim', 200);
         incorrect++;
     }
-    document.getElementById("rspc").innerHTML = correct;
-    document.getElementById("rspi").innerHTML = incorrect;
+    document.getElementById("rsp-correct").innerHTML = correct;
+    document.getElementById("rsp-incorrect").innerHTML = incorrect;
     processStats(optionVal);
 }
 
@@ -165,7 +180,7 @@ function processStats(optionVal){
     if (incorrect == 0){
         answerAccuracy = 100;
     }
-    document.getElementById("ansacc").innerHTML = "Score: " + answerAccuracy.toPrecision(3) + "% ";
+    document.getElementById("answeraccuracy").innerHTML = "Score: " + answerAccuracy.toPrecision(3) + "% ";
     trailingTwentyFive.length = 25;
     if (totalAnswered < 25){
         trailingTwentyFiveDenominator = totalAnswered;

@@ -139,7 +139,7 @@ button:hover {
     color: #ffffff;
 }
 
-#rspc, #rspi {
+#rsp-correct, #rsp-incorrect {
     margin: 20px;
 }
 .ttf {
@@ -149,7 +149,7 @@ button:hover {
     color: #ffffff;
     font-size: 40px;
 }
-.counteranim {
+.counter-anim {
     animation: scorescale 0.2s 1;
     animation-timing-function: ease-out;
 }
@@ -167,7 +167,7 @@ button:hover {
     color: #ffffff;
 }
 
-.rsp-correct {
+.rsp-correct-anim {
     animation: correctflash 0.3s 1;
     animation-timing-function: ease-out;
 }
@@ -177,7 +177,7 @@ button:hover {
     100% {color: #ffffff}
 }
 
-.rsp-incorrect {
+.rsp-incorrect-anim {
     animation: incorrectflash 0.3s 1;
     animation-timing-function: ease-out;
 }
