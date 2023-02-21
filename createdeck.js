@@ -1,16 +1,16 @@
 termsAndDefs = [];
 
 //this variable name is somewhat misleading. It's total terms + definitions, because each def is counted as a term
-let totalTerms = 3;
+let totalTerms = 11;
 
 function downloadDeck() {
     for (let i = 0; i < totalTerms - 1; i++) {
         termsAndDefs[i] = document.getElementById("input" + (i + 1)).value;
         if (termsAndDefs[i].includes('\\')) {
-            termsAndDefs[i] = termsAndDefs[i].replace(/\\/g, "\\\\");
+            termsAndDefs[i] = termsAndDefs[i].replace(/\\/g, " \\\\ ");
         }
         if (termsAndDefs[i].includes(',')) {
-            termsAndDefs[i] = termsAndDefs[i].replace(/,/g, "\\");
+            termsAndDefs[i] = termsAndDefs[i].replace(/,/g, " \\ ");
         }
     }
 

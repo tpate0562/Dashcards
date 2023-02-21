@@ -88,6 +88,31 @@ body {
     user-select: none;
 }
 
+/* I want to vertically center this later. Also I want to have an arrow pointing towards the load deck button */
+#startprompt {
+    display: flex;
+    justify-content: center;
+    font-family: "Inter";
+    font-size: 30px;
+    font-style: italic;
+    color: #ffffff;
+}
+
+#startbutton {
+    display: none;
+    border: none;
+    border-radius: 10px;
+    background-color: #1c00bc;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "Roboto Condensed";
+    font-size: 20px;
+    padding: 10px 100px;
+    margin: 10px 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
 button:hover {
     background-color: #2300e6;
     transition: 0.2s;
@@ -135,7 +160,8 @@ button:hover {
 }
 
 #question, #rsp {
-    display: flex;
+    /*display: flex;*/
+    display: none;
     justify-content: center;
     font-family: "Inter";
     color: #ffffff;

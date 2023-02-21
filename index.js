@@ -7,18 +7,26 @@ var definitions = [];
 let questionOrder = [];
 let buttonDiv = document.getElementById('buttons');
 let buttonChildren = buttonDiv.children;
+
 let answer = Math.floor(Math.random() * terms.length);
 let button = [];
 let answerPosition = 5;
 let correct = 0;
 let incorrect = -1;
 let answerPositionComparable = 0;
-let totalAnswered = -1;
+let totalAnswered = 0;
 let answerAccuracy = 0;
 let trailingTwentyFive = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 let trailingTwentyFivePosition = totalAnswered % 25;
 let trailingTwentyFiveDenominator = 0;
 let summationTTF = 0;
+
+function startQuiz() {
+    document.getElementById("question").style.display = "flex";
+    document.getElementById("buttons").style.removeProperty("display");
+    document.getElementById("startbutton").style.display = "none";
+    document.getElementById("rsp").style.display = "flex";
+}
 
 function getDeck() {
     const [file] = document.getElementById('upload').files;
@@ -29,8 +37,7 @@ function getDeck() {
     }
 
     reader.addEventListener("load", () => {
-        terms = [];
-        definitions = [];
+        resetQuiz();
 
         const userDeck = reader.result.split(',');
 
@@ -47,19 +54,38 @@ function getDeck() {
             definitions.push(userDeck[(i * 2) + 1]);
 
             if (definitions[i].includes('\\')) {
-                definitions[i] = definitions[i].replace(/(?<!\\)\\(?!\\)/g, ',');
+                definitions[i] = definitions[i].replace(/ \\ /g, ',');
             }
             if (definitions[i].includes("\\\\")) {
-                definitions[i] = definitions[i].replace(/\\\\/g, "\\");
+                definitions[i] = definitions[i].replace(/ \\\\ /g, "\\");
             }
         }
-        console.log(terms);
-        console.log(definitions);
     });
+}
+
+function resetQuiz() {
+    terms = [];
+    definitions = [];
+    totalAnswered = 0;
+    correct = 0;
+    incorrect = 0;
+    totalAnswered = 0;
+    answerAccuracy = 0;
+    trailingTwentyFive = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    trailingTwentyFivePosition = totalAnswered % 25;
+    trailingTwentyFiveDenominator = 0;
+    summationTTF = 0;
+
+    document.getElementById("startprompt").style.display = "none";
+    document.getElementById("question").style.display = "none";
+    document.getElementById("buttons").style.display = "none";
+    document.getElementById("startbutton").style.display = "flex";
 }
 
 function clickButton(optionVal) {
     totalAnswered++;
+
+    //generates a unique index position in terms[] for each button to display
     for (let i = 0; i < 4; i++) {
         let generate_index = Math.floor(Math.random() * terms.length);
         while (button.includes(generate_index)) {
@@ -67,20 +93,25 @@ function clickButton(optionVal) {
         }
         button[i] = generate_index;
     }
+
+    //reshuffles the question order array after answering each once
     questionOrder.length = terms.length;
-    console.log(questionOrder);
     if (totalAnswered % questionOrder.length == 0){
         for(let i = 0; i < questionOrder.length; i++){
             questionOrder[i] = i;
         }
         shuffle(questionOrder);
     }
-    console.log(questionOrder);
+
     answerPositionComparable = answerPosition; // Seems uncessary at first but comes in handy in processAnswer()
+
+    //terms at generated indices used to display choices on buttons
     for (let i = 0; i < 4; i++) {
         buttonChildren[i].innerHTML = terms[button[i]];
     }
-    if (true /* ANSWER CHOICE AND QUESTION DISPLAY*/ ){
+    
+    /* ANSWER CHOICE AND QUESTION DISPLAY*/
+    {
         answerPosition = Math.floor(Math.random() * 4);
         answer = questionOrder[totalAnswered % terms.length];
         buttonChildren[answerPosition].innerHTML = terms[answer];

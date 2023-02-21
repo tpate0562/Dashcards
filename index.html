@@ -15,13 +15,18 @@
         <a><label for="upload">Load Deck</label> <!--Maybe turn into drop down menu choose between dash file or quizlet??-->
         <input type="file" id="upload" name="userdeck" onchange="getDeck()"></a>
     </div>
-    <h2 id="question">Click a button to start — Ad Nauseum - Vindicate</h2> <!-- change this attribute type later -->
-    <div class="center" id="buttons">
+    
+    <h2 id="startprompt">Load or create a deck to start!</h2>
+    <button id="startbutton" onclick="startQuiz()">Start</button>
+
+    <h2 id="question"></h2>
+    <div class="center" id="buttons" style="display: none">
         <button class="btn" id="btn1" onclick="clickButton(0)">wordOneFromList</button>
         <button class="btn" id="btn2" onclick="clickButton(1)">wordTwoFromList</button>
         <button class="btn" id="btn3" onclick="clickButton(2)">wordThreeFromList</button>
         <button class="btn" id="btn4" onclick="clickButton(3)">wordFourFromList</button>
     </div>
+
     <h4 id="rsp"></h4>
     <div class="counter">
         <h4 id="rspc"></h4>
