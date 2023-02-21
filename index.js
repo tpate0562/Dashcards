@@ -26,6 +26,7 @@ function startQuiz() {
     document.getElementById("buttons").style.removeProperty("display");
     document.getElementById("startbutton").style.display = "none";
     document.getElementById("rsp").style.display = "flex";
+    document.getElementById("stats").style.removeProperty("display");
 
     setButtonTerms();
     setNewAnswer();
@@ -87,6 +88,7 @@ function resetQuiz() {
     document.getElementById("startprompt").style.display = "none";
     document.getElementById("question").style.display = "none";
     document.getElementById("buttons").style.display = "none";
+    document.getElementById("stats").style.display = "none";
     document.getElementById("startbutton").style.display = "flex";
 }
 
