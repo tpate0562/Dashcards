@@ -5,34 +5,41 @@
 
     <!--TODO: THIS NEEDS TO CHANGE, YOU NEED TO BE ABLE TO SCROLL (style.css doesn't let you)-->
     <link rel="stylesheet" href="style.css">
+    <style>
+        body { overflow: scroll; overflow-x: hidden; height: 120vh; };
+    </style>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="logo.png"
+    <link rel="icon" type="image/x-icon" href="logo.png">
 </head>
-<div class="header">
-    <a href="index.html" id="logo">Dashcards</a>
-    <a href="about.html" style="margin-right: 25px">About</a>
-    <a href="createdeck.html">Create Deck</a>
-    <a href="index.html">Home</a>
-</div>
+<body>
+    <div class="header">
+        <a href="index.html" id="logo">Dashcards</a>
+        <a href="about.html" style="margin-right: 25px">About</a>
+        <a href="createdeck.html">Create Deck</a>
+        <a href="index.html">Home</a>
+    </div>
 
-<!--TODO: make list element for term inputs. So they're labeled 1, 2, etc-->
-<div id="deck-input">
-    <label for="title">Dashcard Deck Title:</label>
-    <input type="text" id="title" autocomplete="off"placeholder="Title"><br>
-    <input type="text" id="input1" autocomplete="off" placeholder="Term">
-    <input type="text" id="input2" autocomplete="off" placeholder="Definition"><br>
-    <input type="text" id="input3" autocomplete="off" placeholder="Term">
-    <input type="text" id="input4" autocomplete="off" placeholder="Definition"><br>
-    <input type="text" id="input5" autocomplete="off" placeholder="Term">
-    <input type="text" id="input6" autocomplete="off" placeholder="Definition"><br>
-    <input type="text" id="input7" autocomplete="off" placeholder="Term">
-    <input type="text" id="input8" autocomplete="off" placeholder="Definition"><br>
-    <input type="text" id="input9" autocomplete="off" placeholder="Term">
-    <input type="text" id="input10" autocomplete="off" placeholder="Definition"><br>
-</div>
-<div>
-    <button class="btn" style="display: inline-block" onclick="addTermInput()">Add a card</button><br>
-    <a class="btn"style="display: inline-block" onclick="downloadDeck()">Download</a>
-</div>
-
-<script src="createdeck.js"></script>
+    <!--TODO: make list element for term inputs. So they're labeled 1, 2, etc-->
+    <div class="content">
+        <div id="deck-input">
+            <label for="title" style="margin-left: auto; margin-right: auto;">Dashcard Deck Title:</label>
+            <input type="text" id="title" autocomplete="off"placeholder="Title"><br>&nbsp;
+            <input type="text" id="input1" autocomplete="off" placeholder="Term">
+            <input type="text" id="input2" autocomplete="off" placeholder="Definition"><br>&nbsp;
+            <input type="text" id="input3" autocomplete="off" placeholder="Term">
+            <input type="text" id="input4" autocomplete="off" placeholder="Definition"><br>&nbsp;
+            <input type="text" id="input5" autocomplete="off" placeholder="Term">
+            <input type="text" id="input6" autocomplete="off" placeholder="Definition"><br>&nbsp;
+            <input type="text" id="input7" autocomplete="off" placeholder="Term">
+            <input type="text" id="input8" autocomplete="off" placeholder="Definition"><br>&nbsp;
+            <input type="text" id="input9" autocomplete="off" placeholder="Term">
+            <input type="text" id="input10" autocomplete="off" placeholder="Definition"><br>&nbsp;
+        </div>
+        <div id="button-controls">
+            <button class="btn" onclick="addTermInput()">Add a card</button><br>
+            <a class="btn" onclick="downloadDeck()">Download</a>
+        </div>
+    </div>
+    <script src="createdeck.js"></script>
+</body>
+</html>
