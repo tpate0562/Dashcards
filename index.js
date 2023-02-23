@@ -53,20 +53,20 @@ function getDeck() {
         for (let i = 0; i < userDeck.length / 2; i++) {
             terms.push(userDeck[i * 2]);
 
-            if (terms[i].includes('\\')) {
-                terms[i] = terms[i].replace(/(?<!\\)\\(?!\\)/g, ',');
+            if (terms[i].includes(' \\ ')) {
+                terms[i] = terms[i].replace(/ \\ /g, ',');
             }
-            if (terms[i].includes('\\\\')) {
-                terms[i] = terms[i].replace(/\\\\/g, '\\');
+            if (terms[i].includes(' \\\\ ')) {
+                terms[i] = terms[i].replace(/ \\\\ /g, '\\');
             }
 
             definitions.push(userDeck[(i * 2) + 1]);
 
-            if (definitions[i].includes('\\')) {
+            if (definitions[i].includes(' \\ ')) {
                 definitions[i] = definitions[i].replace(/ \\ /g, ',');
             }
-            if (definitions[i].includes("\\\\")) {
-                definitions[i] = definitions[i].replace(/ \\\\ /g, "\\");
+            if (definitions[i].includes(" \\\\ ")) {
+                definitions[i] = definitions[i].replace(/ \\\\ /g, '\\');
             }
         }
     });
@@ -141,6 +141,7 @@ function setNewAnswer() {
         console.log(answer);
         buttonChildren[answerPosition].innerHTML = terms[answer];
     }
+    
 }
 
 function shuffle(array) {
@@ -159,7 +160,7 @@ function processAnswer(optionVal) {
     else {
         console.log("Incorrect!");
         if (totalAnswered != 0){
-            document.getElementById("rsp").innerHTML = "Incorrect";
+            document.getElementById("rsp").innerHTML = "Incorrect. The correct answer was " + terms[answer];
         }
         animCall("#rsp", 'rsp-incorrect-anim', 300);
         animCall("#rspi", 'counter-anim', 200);
