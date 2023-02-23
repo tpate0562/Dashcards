@@ -43,7 +43,7 @@ function addTermInput() {
 
     totalTerms += 2;
 
-    $.get("http://./futureLists.txt", function(data) {
+    $.get("https://./futureLists.txt", function(data) {
 console.log("Here's the file data: "+data);
 });
 }
