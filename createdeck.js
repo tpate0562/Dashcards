@@ -42,8 +42,4 @@ function addTermInput() {
     document.getElementById("deck-input").appendChild(document.createElement("br"));
 
     totalTerms += 2;
-
-    $.get("https://./futureLists.txt", function(data) {
-console.log("Here's the file data: "+data);
-});
 }
