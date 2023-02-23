@@ -37,8 +37,14 @@ function startQuiz() {
     document.getElementById("ttf").innerHTML = "  " + summationTTF + " of the last " + trailingTwentyFiveDenominator + " were correct";
 }
 
-function getDeck() {
-    const [file] = document.getElementById('upload').files;
+function getDeck(presetFile) {
+    if (null) {
+        [file] = document.getElementById('upload').files;
+    } else {
+        $.get(presetFile, function(data) {
+            [file] = data; 
+        });
+    }
     const reader = new FileReader();
 
     if (file) {
