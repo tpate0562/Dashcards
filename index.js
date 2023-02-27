@@ -37,14 +37,9 @@ function startQuiz() {
     document.getElementById("ttf").innerHTML = "  " + summationTTF + " of the last " + trailingTwentyFiveDenominator + " were correct";
 }
 
-function getDeck(presetFile) {
-    if (null) {
-        [file] = document.getElementById('upload').files;
-    } else {
-        $.get(presetFile, function(data) {
-            [file] = data; 
-        });
-    }
+function getUserDeck() {
+
+    const [file] = document.getElementById('upload').files;
     const reader = new FileReader();
 
     if (file) {
@@ -52,30 +47,40 @@ function getDeck(presetFile) {
     }
 
     reader.addEventListener("load", () => {
-        resetQuiz();
-
-        const userDeck = reader.result.split(',');
-
-        for (let i = 0; i < userDeck.length / 2; i++) {
-            terms.push(userDeck[i * 2]);
-
-            if (terms[i].includes(' \\ ')) {
-                terms[i] = terms[i].replace(/ \\ /g, ',');
-            }
-            if (terms[i].includes(' \\\\ ')) {
-                terms[i] = terms[i].replace(/ \\\\ /g, '\\');
-            }
-
-            definitions.push(userDeck[(i * 2) + 1]);
-
-            if (definitions[i].includes(' \\ ')) {
-                definitions[i] = definitions[i].replace(/ \\ /g, ',');
-            }
-            if (definitions[i].includes(" \\\\ ")) {
-                definitions[i] = definitions[i].replace(/ \\\\ /g, '\\');
-            }
-        }
+        parseDeckAndStart(reader.result);
     });
+}
+
+function getPresetDeck(presetFile) {
+    $.get(presetFile, function(data) {
+        parseDeckAndStart(data);
+    });
+}
+
+function parseDeckAndStart(deckString) {
+    resetQuiz();
+
+    const userDeck = deckString.split(',');
+
+    for (let i = 0; i < userDeck.length / 2; i++) {
+        terms.push(userDeck[i * 2]);
+
+        if (terms[i].includes(' \\ ')) {
+            terms[i] = terms[i].replace(/ \\ /g, ',');
+        }
+        if (terms[i].includes(' \\\\ ')) {
+            terms[i] = terms[i].replace(/ \\\\ /g, '\\');
+        }
+
+        definitions.push(userDeck[(i * 2) + 1]);
+
+        if (definitions[i].includes(' \\ ')) {
+            definitions[i] = definitions[i].replace(/ \\ /g, ',');
+        }
+        if (definitions[i].includes(" \\\\ ")) {
+            definitions[i] = definitions[i].replace(/ \\\\ /g, '\\');
+        }
+    }
 }
 
 function resetQuiz() {
