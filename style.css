@@ -17,10 +17,9 @@ body {
 }
 
 .header {
-    /*overflow: hidden;*/
     position: fixed;
     background-color: #1c00bc; /* Not the biggest fan of this color, we could change (or even get rid of) */
-    padding: 20px 10px;
+    padding: 15px 10px;
     width: 100%;
 }
 
@@ -49,7 +48,7 @@ body {
     display: none;
 }
 
-.header a:hover, .header button:hover {
+.header a:hover {
     background: linear-gradient(90deg, #ffb444, #ffffff); /* might just change to standard button hover look y'know */
     background-clip: text;
     -webkit-background-clip: text;
@@ -70,13 +69,16 @@ body {
     right: 0;
     background-color: #1c00bc;
     margin-top: 40px;
+    padding-top: 20px;
     min-width: 160px;
+    border-radius: 5px;
     z-index: 1;
 }
 
 .dropdown-options a {
     color: #ffffff;
     padding: 12px 16px;
+    text-align: right;
     text-decoration: none;
     display: block;
 }
@@ -147,7 +149,7 @@ body {
     user-select: none;
 }
 
-button:hover {
+.btn button:hover {
     background-color: #2300e6;
     transition: 0.2s;
 }

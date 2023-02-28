@@ -14,11 +14,11 @@
         <a href="createdeck.html">Create Deck</a>
         
         <div class="dropdown">
-            <button>Load Deck</button>
+            <button>&#9660; Load Deck</button>
             <div class="dropdown-options">
                 <a><label for="upload">From File</label>
                 <input type="file" id="upload" name="userdeck" accept=".txt" onchange="getUserDeck()"></a>
-                <a onclick="getPresetDeck('preset-decks/ap-lang-cumulative.txt')">From Preset</a>
+                <a class="dropdown" onclick="getPresetDeck('preset-decks/ap-lang-cumulative.txt')">From Preset</a>
             </div>
         </div>        
     </div>
