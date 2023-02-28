@@ -12,12 +12,17 @@
         <a href="index.html" id="logo">Dashcards</a>
         <a href="about.html" style="margin-right: 25px">About</a>
         <a href="createdeck.html">Create Deck</a>
-        <a><label for="upload">Load Deck</label> <!--Maybe turn into drop down menu choose between dash file or quizlet??-->
-        <input type="file" id="upload" name="userdeck" accept=".txt" onchange="getUserDeck()"></a>
+        
+        <div class="dropdown">
+            <button>Load Deck</button>
+            <div class="dropdown-options">
+                <a><label for="upload">From File</label>
+                <input type="file" id="upload" name="userdeck" accept=".txt" onchange="getUserDeck()"></a>
+                <a onclick="getPresetDeck('preset-decks/ap-lang-cumulative.txt')">From Preset</a>
+            </div>
+        </div>        
     </div>
-    
     <div class="content">
-        <button class="btn" onclick="getPresetDeck('preset-decks/ap-lang-cumulative.txt')">Test</button>
         <h2 id="startprompt">Load or create a deck to start!</h2>
         <button id="startbutton" onclick="startQuiz()">Start</button>
 

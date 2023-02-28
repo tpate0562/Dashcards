@@ -47,17 +47,17 @@ function getUserDeck() {
     }
 
     reader.addEventListener("load", () => {
-        parseDeckAndStart(reader.result);
+        parseDeck(reader.result);
     });
 }
 
 function getPresetDeck(presetFile) {
     $.get(presetFile, function(data) {
-        parseDeckAndStart(data);
+        parseDeck(data);
     });
 }
 
-function parseDeckAndStart(deckString) {
+function parseDeck(deckString) {
     resetQuiz();
 
     const userDeck = deckString.split(',');
