@@ -13,7 +13,6 @@ let button = [];
 let answerPosition;
 let correct = 0;
 let incorrect = 0;
-let answerPositionComparable = 0;
 let totalAnswered = 0;
 let answerAccuracy = 0;
 let trailingTwentyFive = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -58,9 +57,14 @@ function getPresetDeck(presetFile) {
 }
 
 function parseDeck(deckString) {
-    resetQuiz();
-
     const userDeck = deckString.split(',');
+
+    if (userDeck.length < 10) {
+        document.getElementById("startprompt").innerHTML = "Deck must contain at least 5 terms!";
+        return;
+    }
+
+    resetQuiz();
 
     for (let i = 0; i < userDeck.length / 2; i++) {
         terms.push(userDeck[i * 2]);
@@ -106,9 +110,10 @@ function resetQuiz() {
 function clickButton(optionVal) {
     totalAnswered++;
 
+    
+    processAnswer(optionVal);
     setButtonTerms();
     setNewAnswer();
-    processAnswer(optionVal);
 }
 
 function setButtonTerms() {
@@ -129,8 +134,6 @@ function setButtonTerms() {
         }
         shuffle(questionOrder);
     }
-
-    answerPositionComparable = answerPosition; // Seems uncessary at first but comes in handy in processAnswer()
 
     //terms at generated indices used to display choices on buttons
     for (let i = 0; i < 4; i++) {
@@ -153,6 +156,7 @@ function setNewAnswer() {
         buttonChildren[answerPosition].innerHTML = terms[answer];
     }
     
+    
 }
 
 function shuffle(array) {
@@ -161,7 +165,7 @@ function shuffle(array) {
   
 
 function processAnswer(optionVal) {
-    if (optionVal == answerPositionComparable) {
+    if (optionVal == answerPosition) {
         console.log("Correct!");
         document.getElementById("rsp").innerHTML = "Correct";
         animCall("#rsp", 'rsp-correct-anim', 300);
@@ -202,7 +206,7 @@ function processStats(optionVal){
     else{
         trailingTwentyFiveDenominator = 25;
     }
-    if (optionVal == answerPositionComparable){
+    if (optionVal == answerPosition){
         trailingTwentyFive[totalAnswered % 25] = 1;
     }
     else{

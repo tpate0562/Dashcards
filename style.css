@@ -23,7 +23,7 @@ body {
     width: 100%;
 }
 
-.header a, .header button {
+.header a, .header button, .header label {
     display: block;
     float: right;
     padding: 12px;
@@ -48,7 +48,7 @@ body {
     display: none;
 }
 
-.header a:hover {
+.header a:hover, .header label:hover, .dropdown:hover button {
     background: linear-gradient(90deg, #ffb444, #ffffff); /* might just change to standard button hover look y'know */
     background-clip: text;
     -webkit-background-clip: text;
@@ -75,12 +75,10 @@ body {
     z-index: 1;
 }
 
-.dropdown-options a {
-    color: #ffffff;
+.dropdown-options a, .dropdown-options label {
     padding: 12px 16px;
     text-align: right;
-    text-decoration: none;
-    display: block;
+    width: 80%;
 }
 
 .dropdown:hover .dropdown-options {

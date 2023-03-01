@@ -16,16 +16,35 @@
         <div class="dropdown">
             <button>&#9660; Load Deck</button>
             <div class="dropdown-options">
-                <a><label for="upload">From File</label>
-                <input type="file" id="upload" name="userdeck" accept=".txt" onchange="getUserDeck()"></a>
+                <label for="upload">From File</label>
+                <input type="file" id="upload" name="userdeck" accept=".txt" onchange="getUserDeck()">
                 <a class="dropdown" onclick="getPresetDeck('preset-decks/ap-lang-cumulative.txt')">From Preset</a>
+                <a class="dropdown">From Quizlet</a>
             </div>
         </div>        
     </div>
     <div class="content">
         <h2 id="startprompt">Load or create a deck to start!</h2>
         <button id="startbutton" onclick="startQuiz()">Start</button>
-
+        <div>
+            <form>
+                <label for="preset-select">Select a Preset:</label>
+                <select id="preset-select">
+                    <optgroup label="AP English Lang Vocab">
+                        <option value="abrade-vainglorious.txt">List 1: Abrade - Vainglorious</option>
+                        <option value="abrogate-zealous.txt">List 2: Abrogate - Zealous</option>
+                        <option value="abscond-wistful.txt">List 3: Abscond - Wisftul</option>
+                        <option value="absolve-zenith.txt">List 4: Absolve - Zenith</option>
+                        <option value="aegis-vitriolic.txt">List 5: Aegis - Vitriolic</option>
+                        <option value="ad-nauseam-vindicate.txt">List 6: Ad Nauseam - Vindicate</option>
+                        <option value="camaraderie-torpid.txt">List 7: Camaraderie - Torpid</option>
+                        <option value="ap-lang-cumulative.txt">AP English Lang Cumulative</option>
+                    </optgroup>
+                </select>
+                <br>&nbsp;<br>&nbsp;
+                <input type="submit" value="Start">
+            </form>
+        </div>
         <h2 id="question"></h2>
         <div class="center" id="buttons" style="display: none">
             <button class="btn" id="btn1" onclick="clickButton(0)">wordOneFromList</button>
