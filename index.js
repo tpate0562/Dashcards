@@ -7,7 +7,6 @@ var definitions = [];
 let questionOrder = [];
 let buttonDiv = document.getElementById('buttons');
 let buttonChildren = buttonDiv.children;
-
 let answer = Math.floor(Math.random() * terms.length);
 let button = [];
 let answerPosition;
@@ -24,6 +23,7 @@ function startQuiz() {
     document.getElementById("question").style.display = "flex";
     document.getElementById("buttons").style.removeProperty("display");
     document.getElementById("startbutton").style.display = "none";
+    document.getElementById("preset-menu").style.display = "none";
     document.getElementById("rsp").style.display = "flex";
     document.getElementById("stats").style.removeProperty("display");
 
@@ -46,13 +46,22 @@ function getUserDeck() {
     }
 
     reader.addEventListener("load", () => {
+        resetQuiz();
         parseDeck(reader.result);
     });
 }
 
-function getPresetDeck(presetFile) {
-    $.get(presetFile, function(data) {
+function showPresetMenu() {
+    document.getElementById("startbutton").disabled = true;
+    resetQuiz();
+    document.getElementById("preset-menu").style.removeProperty("display");
+}
+
+function getPresetDeck() {
+    console.log(document.getElementById("preset-select").value);
+    $.get('preset-decks/' + document.getElementById("preset-select").value, function(data) {
         parseDeck(data);
+        document.getElementById("startbutton").disabled = false;
     });
 }
 
@@ -63,8 +72,6 @@ function parseDeck(deckString) {
         document.getElementById("startprompt").innerHTML = "Deck must contain at least 5 terms!";
         return;
     }
-
-    resetQuiz();
 
     for (let i = 0; i < userDeck.length / 2; i++) {
         terms.push(userDeck[i * 2]);
