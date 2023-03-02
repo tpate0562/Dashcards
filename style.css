@@ -122,8 +122,9 @@ body {
     user-select: none;
 }
 
-button:disabled {
+button:disabled, button[disabled] {
     opacity: 60%;
+    cursor: default;
 }
 
 /* I want to vertically center this later. Also I want to have an arrow pointing towards the load deck button */
@@ -151,9 +152,8 @@ button:disabled {
     user-select: none;
 }
 
-#preset-select-label {
-    display: flex;
-    justify-content: center;
+.text {
+    margin-left: 10px;
     font-family: "Inter";
     font-size: 25px;
     color: #ffffff;
@@ -161,7 +161,6 @@ button:disabled {
 
 #preset-select {
     display: flex;
-    justify-content: center;
     font-family: "Inter";
     font-size: 16px;
     color: #ffffff;
@@ -293,4 +292,39 @@ input[type=text] {
 
 ::placeholder {
     font-family: "Roboto Condensed";
+}
+
+/*********
+about.html
+*********/
+
+.section-title {
+    display: block;
+    justify-content: center;
+    margin-left: 20%;
+    margin-right: 20%;
+    text-align: left;
+    text-decoration: underline;
+    text-decoration-color: #ffb444;
+    font-family: "Inter";
+    font-size: 25px;
+    color: #ffffff;
+}
+
+p {
+    display: inline-block;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 0%;
+    font-family: "Inter";
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.text-link {
+    display: inline-block;
+    font-family: "Inter";
+    font-size: 18px;
+    color: #ffffff;
+    text-decoration-color: #ffb444;
 }

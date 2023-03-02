@@ -52,8 +52,8 @@ function getUserDeck() {
 }
 
 function showPresetMenu() {
-    document.getElementById("startbutton").disabled = true;
     resetQuiz();
+    document.getElementById("startbutton").disabled = true;
     document.getElementById("preset-menu").style.removeProperty("display");
 }
 
@@ -112,6 +112,8 @@ function resetQuiz() {
     document.getElementById("buttons").style.display = "none";
     document.getElementById("stats").style.display = "none";
     document.getElementById("startbutton").style.display = "flex";
+    document.getElementById("preset-menu").style.display = "none";
+    document.getElementById("startbutton").disabled = false;
 }
 
 function clickButton(optionVal) {

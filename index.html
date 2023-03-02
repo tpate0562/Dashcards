@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <link rel="icon" type="image/x-icon" href="logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 </head>
 <body>
     <div class="header">
@@ -27,7 +28,7 @@
         <h2 id="startprompt">Load or create a deck to start!</h2>
         <div>
             <form id="preset-menu" style="display: none">
-                <label id="preset-select-label" for="preset-select">Select a Preset:</label>
+                <label class="text" for="preset-select">Select a Preset:</label>
                 <select id="preset-select"  onchange="getPresetDeck()" autocomplete="off">
                     <option value="none" selected disabled hidden>Deck Select</option>
                     <optgroup label="AP English Lang Vocab">
@@ -41,7 +42,7 @@
                         <option value="ap-lang-cumulative.txt">AP English Lang Cumulative</option>
                     </optgroup>
                 </select>
-                <br>&nbsp;<br>&nbsp;
+                <br><br>
             </form>
         <button id="startbutton" onclick="startQuiz()">Start</button>
         </div>
