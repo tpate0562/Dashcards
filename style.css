@@ -1,13 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
 
+:root {
+    --dashcards-blue: #1c00bc;
+    --dashcards-orange: #ffb444;
+}
+
 html, body { height: 100%; }
 
 body {
     margin: 0;
     padding: 0;
     background-attachment: fixed;
-    background-image: linear-gradient(180deg, #4949c2, #6f6fe4, #ffb444);
+    background-image: linear-gradient(180deg, #4949c2, #6f6fe4, var(--dashcards-orange));
     min-height: 100vh;
     background-repeat: no-repeat;
     overflow: hidden;
@@ -18,7 +23,7 @@ body {
 
 .header {
     position: fixed;
-    background-color: #1c00bc; /* Not the biggest fan of this color, we could change (or even get rid of) */
+    background-color: var(--dashcards-blue); /* Not the biggest fan of this color, we could change (or even get rid of) */
     padding: 15px 10px;
     width: 100%;
 }
@@ -49,7 +54,7 @@ body {
 }
 
 .header a:hover, .header label:hover, .dropdown:hover button {
-    background: linear-gradient(90deg, #ffb444, #ffffff); /* might just change to standard button hover look y'know */
+    background: linear-gradient(90deg, var(--dashcards-orange), #ffffff); /* might just change to standard button hover look y'know */
     background-clip: text;
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -67,7 +72,7 @@ body {
     display: none;
     position: absolute;
     right: 0;
-    background-color: #1c00bc;
+    background-color: var(--dashcards-blue);
     margin-top: 40px;
     padding-top: 20px;
     min-width: 160px;
@@ -90,7 +95,7 @@ body {
     font-size: 40px;
     font-weight: bold;
     font-style: italic;
-    background: linear-gradient(90deg, #ffb444, #ffffff, #ffffff);
+    background: linear-gradient(90deg, var(--dashcards-orange), #ffffff, #ffffff);
     background-clip: text;
     -webkit-background-clip: text;
     color: #00000000;
@@ -107,7 +112,7 @@ body {
     display: inline-block;
     border: none;
     border-radius: 10px;
-    background-color: #1c00bc;
+    background-color: var(--dashcards-blue);
     color: #ffffff;
     text-decoration: none;
     font-family: "Roboto Condensed";
@@ -140,7 +145,7 @@ body {
     right: 0px;
     border: none;
     border-radius: 10px;
-    background-color: #1c00bc;
+    background-color: var(--dashcards-blue);
     color: #ffffff;
     padding: 10px 10px;
     margin-top: 20px;
@@ -155,7 +160,7 @@ body {
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-    background-color: #1c00bc;
+    background-color: var(--dashcards-blue);
     width: 40%;
     height: auto;
     max-width: 1200px;
@@ -209,7 +214,7 @@ input[type="radio"]::before {
     border-radius: 50%;
     transform: scale(0);
     transition: 120ms transform ease-in-out;
-    box-shadow: inset 1em 1em #ffb444;
+    box-shadow: inset 1em 1em var(--dashcards-orange);
 }
 input[type="radio"]:checked::before {
     transform: scale(1);
@@ -235,7 +240,7 @@ button:disabled, button[disabled] {
     display: none;
     border: none;
     border-radius: 10px;
-    background-color: #1c00bc;
+    background-color: var(--dashcards-blue);
     color: #ffffff;
     text-decoration: none;
     font-family: "Roboto Condensed";
@@ -258,7 +263,7 @@ button:disabled, button[disabled] {
     font-family: "Inter";
     font-size: 16px;
     color: #ffffff;
-    background-color: #1c00bc;
+    background-color: var(--dashcards-blue);
     width: 40%;
     padding: 10px 15px;
     margin: 10px;
@@ -394,7 +399,7 @@ about.html
     margin-right: 20%;
     text-align: left;
     text-decoration: underline;
-    text-decoration-color: #ffb444;
+    text-decoration-color: var(--dashcards-orange);
     font-family: "Inter";
     font-size: 25px;
     color: #ffffff;
@@ -415,5 +420,5 @@ p {
     font-family: "Inter";
     font-size: 18px;
     color: #ffffff;
-    text-decoration-color: #ffb444;
+    text-decoration-color: var(--dashcards-orange);
 }
