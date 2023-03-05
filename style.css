@@ -85,10 +85,6 @@ body {
     display: block;
 }
 
-#content {
-    padding-top: 100px;
-}
-
 #logo {
     float: left;
     font-size: 40px;
@@ -127,6 +123,17 @@ body {
     transition: 0.2s;
 }
 
+#write-input {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    font-family: "Roboto Condensed";
+    font-size: 20px;
+    color: #ffffff;
+}
+
 #settings-open, #settings-close {
     display: block;
     position: absolute;
@@ -149,8 +156,8 @@ body {
     margin-right: -50%;
     transform: translate(-50%, -50%);
     background-color: #1c00bc;
-    width: 50%;
-    height: 40%;
+    width: 40%;
+    height: auto;
     max-width: 1200px;
     max-height: 960px;
     text-align: center;
@@ -171,7 +178,7 @@ body {
 }
 
 .radio-label {
-    font-size: 24px;
+    font-size: 20px;
     display: grid;
     grid-template-columns: 1em auto;
     gap: 0.5em;

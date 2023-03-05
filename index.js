@@ -113,14 +113,30 @@ function resetQuiz() {
     document.getElementById("startbutton").disabled = false;
 }
 
-function clickButton(optionVal) {
+function clickButton(answerSubmitted) {
     totalAnswered++;
-
     
-    processAnswer(optionVal);
+    processAnswer(answerSubmitted);
     setButtonTerms();
     setNewAnswer();
 }
+
+var writeValue = document.getElementById("write-answer");
+function writeSubmit() {
+    totalAnswered++;
+
+    processAnswer(writeValue.value.toLowerCase());
+    writeValue.value = "";
+    setNewAnswer();
+}
+
+writeValue.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("writebutton").click();
+    }
+})
+
 
 function setButtonTerms() {
     //generates a unique index position in terms[] for each button to display
@@ -158,11 +174,8 @@ function setNewAnswer() {
     while (button.includes(answer)) {
         answer = Math.floor(Math.random() * terms.length);
         document.getElementById("question").innerHTML = definitions[answer];
-        console.log(answer);
         buttonChildren[answerPosition].innerHTML = terms[answer];
     }
-    
-    
 }
 
 function shuffle(array) {
@@ -170,8 +183,8 @@ function shuffle(array) {
   }
   
 
-function processAnswer(optionVal) {
-    if (optionVal == answerPosition) {
+function processAnswer(answerSubmitted) {
+    if (answerSubmitted === answerPosition || answerSubmitted === terms[answer].toLowerCase()) {
         console.log("Correct!");
         document.getElementById("rsp").innerHTML = "Correct";
         animCall("#rsp", 'rsp-correct-anim', 300);
@@ -189,7 +202,7 @@ function processAnswer(optionVal) {
     }
     document.getElementById("rsp-correct").innerHTML = correct;
     document.getElementById("rsp-incorrect").innerHTML = incorrect;
-    processStats(optionVal);
+    processStats(answerSubmitted);
 }
 
 function animCall(id, anim, duration) {
@@ -199,7 +212,7 @@ function animCall(id, anim, duration) {
     }, duration);
 }
 
-function processStats(optionVal){
+function processStats(answerSubmitted){
     answerAccuracy = 100* correct/totalAnswered;
     if (incorrect == 0){
         answerAccuracy = 100;
@@ -212,7 +225,7 @@ function processStats(optionVal){
     else{
         trailingTwentyFiveDenominator = 25;
     }
-    if (optionVal == answerPosition){
+    if (answerSubmitted === answerPosition || answerSubmitted === terms[answer].toLowerCase()){
         trailingTwentyFive[totalAnswered % 25] = 1;
     }
     else{
@@ -227,7 +240,7 @@ function processStats(optionVal){
 }
 
 let toggle = false;
-function showSettingsMenu() {
+function toggleSettingsMenu() {
     toggle = !toggle;
 
     if (toggle) {
@@ -238,5 +251,18 @@ function showSettingsMenu() {
         document.getElementById("content").style.removeProperty("filter");
         document.getElementById("settings-menu").style.display = "none";
         document.getElementById("settings-open").style.removeProperty("display");
+    }
+}
+
+function changeInputMode() {
+    let inputOpts = document.getElementsByName("input");
+
+    //FIXME: don't change display when quiz isn't running
+    if (inputOpts[0].checked) { //multiple-choice
+        document.getElementById("write-input").style.display = "none";
+        document.getElementById("buttons").style.removeProperty("display");
+    } else if (inputOpts[1].checked) { //write-in
+        document.getElementById("buttons").style.display = "none";
+        document.getElementById("write-input").style.removeProperty("display");
     }
 }

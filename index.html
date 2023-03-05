@@ -25,7 +25,7 @@
     </div>
     <div style="padding-top: 76px"></div>
     <div id="settings">  
-        <button id="settings-open" onclick="showSettingsMenu()">
+        <button id="settings-open" onclick="toggleSettingsMenu()">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-adjustments-horizontal" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <circle cx="14" cy="6" r="2" />
@@ -40,7 +40,7 @@
             </svg>
         </button>
         <div id="settings-menu" style="display: none">
-            <button id="settings-close" onclick="showSettingsMenu()">
+            <button id="settings-close" onclick="toggleSettingsMenu()">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                     <line x1="18" y1="6" x2="6" y2="18" />
@@ -49,8 +49,8 @@
             </button>
             <h2 class="text">Settings</h2><br>
             <form id="settings-options" autocomplete="off">
-                <fieldset id="input-options">
-                    <legend align="center" style="font-weight: bold;">Input type</legend>
+                <fieldset id="input-options" onchange="changeInputMode()">
+                    <legend align="center" style="font-weight: bold">Input type</legend>
                     <label for="multiple-choice" class="radio-label">
                         <input type="radio" id="multiple-choice" value="multiple-choice" name="input" checked>
                         Multiple choice
@@ -63,7 +63,7 @@
             </form>
         </div>
     </div>
-    <div id="content" style="padding-top: 0px">
+    <div id="content">
         <h2 id="startprompt">Load or create a deck to start!</h2>
         <div>
             <form id="preset-menu" style="display: none">
@@ -91,6 +91,10 @@
             <button class="btn" id="btn2" onclick="clickButton(1)">wordTwoFromList</button>
             <button class="btn" id="btn3" onclick="clickButton(2)">wordThreeFromList</button>
             <button class="btn" id="btn4" onclick="clickButton(3)">wordFourFromList</button>
+        </div>
+        <div id="write-input" style="display: none">
+            <input type="text" id="write-answer" autocomplete="off" placeholder="Write Answer">
+            <button class="btn" id="writebutton" onclick="writeSubmit()">Answer</button>
         </div>
         <div id="stats">
             <h4 id="rsp"></h4>
