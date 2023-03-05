@@ -85,7 +85,7 @@ body {
     display: block;
 }
 
-.content {
+#content {
     padding-top: 100px;
 }
 
@@ -121,6 +121,93 @@ body {
     cursor: pointer;
     user-select: none;
 }
+
+.btn button:hover {
+    background-color: #2300e6;
+    transition: 0.2s;
+}
+
+#settings-open, #settings-close {
+    display: block;
+    position: absolute;
+    right: 0px;
+    border: none;
+    border-radius: 10px;
+    background-color: #1c00bc;
+    color: #ffffff;
+    padding: 10px 10px;
+    margin-top: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+    user-select: none;
+}
+
+#settings-menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background-color: #1c00bc;
+    width: 50%;
+    height: 40%;
+    max-width: 1200px;
+    max-height: 960px;
+    text-align: center;
+    text-decoration: underline;
+    font-family: "Inter";
+    font-size: 25px;
+    color: #ffffff;
+    border-radius: 8px;
+    z-index: 1;
+}
+
+#input-options {
+    display: block;
+    float: left;
+    text-align: left;
+    font-size: 22px;
+    border: 0;
+}
+
+.radio-label {
+    font-size: 24px;
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 0.5em;
+}
+
+.radio-label + .radio-label {
+    margin-top: 0.5em;
+}
+
+input[type="radio"] {
+    appearance: none;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.0em;
+    height: 1.0em;
+    border: 0.12em solid currentColor;
+    border-radius: 50%;
+    transform: translateY(-0.06em);
+    display: grid;
+    place-content: center;
+}
+
+input[type="radio"]::before {
+    content: "";
+    width: 0.6em;
+    height: 0.6em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em #ffb444;
+}
+input[type="radio"]:checked::before {
+    transform: scale(1);
+}
+
 
 button:disabled, button[disabled] {
     opacity: 60%;
@@ -177,11 +264,6 @@ button:disabled, button[disabled] {
 
 select optgroup {
     font-style: normal;
-}
-
-.btn button:hover {
-    background-color: #2300e6;
-    transition: 0.2s;
 }
 
 /* THIS GRID ISN'T RIGHT. Needs to have button sizes not based on other text (and still needs vertical centering) */

@@ -1,6 +1,3 @@
-//terms = ["ad nauseam", "adept", "brusque", "calamitous", "contemplative", "copious", "coup d'état", "coup de grâce", "eclectic", "gesticulate", "hearten", "ingratiate", "inculcate", "jovial", "melancholic", "mercurial", "obsequious" ,"pernicious" ,"phlegmatic", "poignant", "pontificate", "propitious", "proprietary", "propriety", "recidivism", "reminisce", "sanguine", "snarky", "subpoena", "systemic", "tenacious", "tentative", "tenuous", "unceremonious", "untenable", "vindicate"];
-//definitions = ["repeated so often it becomes tiresome, annoying (rigmarole)", "skilled or very proficient at something (adroit, prowess)", "shortness of speech or manner; abrupt; curt", "disastrous; cataclysmic(debacle)", "thoughtful; pensive; reflective", "prodigious; munificent; plentiful; abundant (close to decadent)", "a sudden, violent uprising; insurrection(usurpation) an illegal seizure of power — (literally blow of state)", "the death blow; the final shot", "motley; varied; diverse; wide-ranging", "to make gestures(often dramatic ones) while speaking", "to cheer up; to raise one's spirits (ant: enervate)", "using flattery/actions to get into one's good graces", "to instill an idea or belief through persistent teaching", "cheerful; friendly", "sad; gloomy; despondent", "given to sudden changes in mood; capricious", "overly attentive/fawning; servile; ingratiating" ,"damaging and harmful, usually in a subtle way" ,"calm; imperturbable; unflappable", "touching; heart-rending; moving", "to express one's opinions pompously and close-mindedly (sententious)", "favorable; promising; optimistic", "pertaining to ownership, possession", "proper behavior; correctness of manner", "the reoccurrence of a criminal behavior that has been previously punished for", "to remember/look back on with fondness (not nostalgia)", "cheerful; optimistic", "cranky; irritable; critical; snide", "n. a written order to attend a court of law; v. to summon someone to court", "affecting the whole, rather than just a part", "persistent; stubbornly clingy; unshakable--grit", "hesitant; unsure; not confident", "having little substance or strength; weak", "undignified; lacking formality or grace (ant. august)", "not defensible or justifiable", "to free from blame; acquit"];option = [];
-
 var terms = [];
 var definitions = [];
 
@@ -227,4 +224,19 @@ function processStats(optionVal){
     console.log(summationTTF);
     document.getElementById("ttf").innerHTML = "  " + summationTTF + " of the last " + trailingTwentyFiveDenominator +" were correct";
     summationTTF = 0;
+}
+
+let toggle = false;
+function showSettingsMenu() {
+    toggle = !toggle;
+
+    if (toggle) {
+        document.getElementById("content").style.filter = "blur(5px) saturate(75%)";
+        document.getElementById("settings-menu").style.removeProperty("display");
+        document.getElementById("settings-open").style.display = "none";
+    } else {
+        document.getElementById("content").style.removeProperty("filter");
+        document.getElementById("settings-menu").style.display = "none";
+        document.getElementById("settings-open").style.removeProperty("display");
+    }
 }

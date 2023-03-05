@@ -13,7 +13,6 @@
         <a href="index.html" id="logo">Dashcards</a>
         <a href="about.html" style="margin-right: 25px">About</a>
         <a href="createdeck.html">Create Deck</a>
-        
         <div class="dropdown">
             <button>&#9660; Load Deck</button>
             <div class="dropdown-options">
@@ -24,7 +23,47 @@
             </div>
         </div>        
     </div>
-    <div class="content">
+    <div style="padding-top: 76px"></div>
+    <div id="settings">  
+        <button id="settings-open" onclick="showSettingsMenu()">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-adjustments-horizontal" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <circle cx="14" cy="6" r="2" />
+                <line x1="4" y1="6" x2="12" y2="6" />
+                <line x1="16" y1="6" x2="20" y2="6" />
+                <circle cx="8" cy="12" r="2" />
+                <line x1="4" y1="12" x2="6" y2="12" />
+                <line x1="10" y1="12" x2="20" y2="12" />
+                <circle cx="17" cy="18" r="2" />
+                <line x1="4" y1="18" x2="15" y2="18" />
+                <line x1="19" y1="18" x2="20" y2="18" />
+            </svg>
+        </button>
+        <div id="settings-menu" style="display: none">
+            <button id="settings-close" onclick="showSettingsMenu()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </button>
+            <h2 class="text">Settings</h2><br>
+            <form id="settings-options" autocomplete="off">
+                <fieldset id="input-options">
+                    <legend align="center" style="font-weight: bold;">Input type</legend>
+                    <label for="multiple-choice" class="radio-label">
+                        <input type="radio" id="multiple-choice" value="multiple-choice" name="input" checked>
+                        Multiple choice
+                    </label>
+                    <label for="write-in" class="radio-label">
+                        <input type="radio" id="write-in" value="write-in" name="input">
+                        Write-in
+                    </label>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <div id="content" style="padding-top: 0px">
         <h2 id="startprompt">Load or create a deck to start!</h2>
         <div>
             <form id="preset-menu" style="display: none">
@@ -44,7 +83,7 @@
                 </select>
                 <br><br>
             </form>
-        <button id="startbutton" onclick="startQuiz()">Start</button>
+            <button id="startbutton" onclick="startQuiz()">Start</button>
         </div>
         <h2 id="question"></h2>
         <div class="center" id="buttons" style="display: none">
