@@ -117,8 +117,10 @@ body {
     text-decoration: none;
     font-family: "Roboto Condensed";
     font-size: 20px;
-    padding: 20px 150px;
+    padding: auto;
     margin: 10px 10px;
+    width: 400px;
+    height: 65px;
     cursor: pointer;
     user-select: none;
 }
