@@ -42,4 +42,6 @@ function addTermInput() {
     document.getElementById("deck-input").appendChild(document.createElement("br"));
 
     totalTerms += 2;
+
+    window.scrollTo(0, document.body.scrollHeight);
 }

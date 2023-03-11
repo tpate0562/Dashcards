@@ -15,14 +15,22 @@ let trailingTwentyFive = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 let trailingTwentyFivePosition = totalAnswered % 25;
 let trailingTwentyFiveDenominator = 0;
 let summationTTF = 0;
+let inputMode = 0;
+let quizStarted = false;
 
 function startQuiz() {
+    quizStarted = true;
     document.getElementById("question").style.display = "flex";
-    document.getElementById("buttons").style.removeProperty("display");
     document.getElementById("startbutton").style.display = "none";
     document.getElementById("preset-menu").style.display = "none";
     document.getElementById("rsp").style.display = "flex";
     document.getElementById("stats").style.removeProperty("display");
+    
+    if (inputMode === 0) {
+        document.getElementById("buttons").style.removeProperty("display");
+    } else if (inputMode === 1) {
+        document.getElementById("write-input").style.removeProperty("display");
+    }
 
     setButtonTerms();
     setNewAnswer();
@@ -104,6 +112,7 @@ function resetQuiz() {
     trailingTwentyFiveDenominator = 0;
     summationTTF = 0;
 
+    quizStarted = false;
     document.getElementById("startprompt").style.display = "none";
     document.getElementById("question").style.display = "none";
     document.getElementById("buttons").style.display = "none";
@@ -257,12 +266,21 @@ function toggleSettingsMenu() {
 function changeInputMode() {
     let inputOpts = document.getElementsByName("input");
 
-    //FIXME: don't change display when quiz isn't running
     if (inputOpts[0].checked) { //multiple-choice
-        document.getElementById("write-input").style.display = "none";
-        document.getElementById("buttons").style.removeProperty("display");
+        if (quizStarted) {
+            document.getElementById("write-input").style.display = "none";
+            document.getElementById("buttons").style.removeProperty("display");
+        }
+        else {
+            inputMode = 0;
+        }
     } else if (inputOpts[1].checked) { //write-in
-        document.getElementById("buttons").style.display = "none";
-        document.getElementById("write-input").style.removeProperty("display");
+        if (quizStarted) {
+            document.getElementById("buttons").style.display = "none";
+            document.getElementById("write-input").style.removeProperty("display");
+        }
+        else {
+            inputMode = 1;
+        }
     }
 }

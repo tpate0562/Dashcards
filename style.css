@@ -23,7 +23,7 @@ body {
 
 .header {
     position: fixed;
-    background-color: var(--dashcards-blue); /* Not the biggest fan of this color, we could change (or even get rid of) */
+    background-color: var(--dashcards-blue);
     padding: 15px 10px;
     width: 100%;
 }
@@ -54,7 +54,7 @@ body {
 }
 
 .header a:hover, .header label:hover, .dropdown:hover button {
-    background: linear-gradient(90deg, var(--dashcards-orange), #ffffff); /* might just change to standard button hover look y'know */
+    background: linear-gradient(90deg, var(--dashcards-orange), #ffffff);
     background-clip: text;
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -226,7 +226,16 @@ button:disabled, button[disabled] {
     cursor: default;
 }
 
-/* I want to vertically center this later. Also I want to have an arrow pointing towards the load deck button */
+input[type=text] {
+    width: 40%;
+    padding: 10px 15px;
+    margin: 10px;
+    box-sizing: border-box;
+    border: 3px solid #000000;
+    border-radius: 4px;
+    outline: none;
+}
+
 #startprompt {
     display: flex;
     justify-content: center;
@@ -359,23 +368,28 @@ createdeck.html-SPECIFIC STYLES GO DOWN HERE. I know it's probably a bad idea to
 
 
 #deck-input {
-    display: table;
+    display: flex;
     margin-left: auto;
     margin-right: auto;
     width: 1000px;
+    flex-flow: row wrap;
+    justify-content: center;
     font-family: "Roboto Condensed";
     font-size: 20px;
     color: #ffffff;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
-input[type=text] {
-    width: 40%;
-    padding: 10px 15px;
-    margin: 10px;
-    box-sizing: border-box;
-    border: 3px solid #000000;
-    border-radius: 4px;
-    outline: none;
+#title-input {
+    align-self: center;
+    text-align: center;
+    flex-basis: 100%;
+}
+
+#deck-input > input[type=text] {
+    
+    flex-basis: 40%;
 }
 
 #button-controls {
