@@ -1,4 +1,6 @@
-# What is Dashcards?
+# ![Dashcards Favicon](logo.png) What is Dashcards?
+
+
 
 Dashcards is a free, open-source flashcard website created by Tejas Patel and Miguel Diaz, based on Tejas's [original C++ CLI program](https://github.com/tpate0562/Quizlet-main/blob/master/main.cpp). Our design philosophy, and the namesake of the website, is speed: the ability to study quickly and efficiently without being bogged down by page loads and animations.
 
