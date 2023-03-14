@@ -197,7 +197,7 @@ function processAnswer(answerSubmitted) {
         console.log("Correct!");
         document.getElementById("rsp").innerHTML = "Correct";
         animCall("#rsp", 'rsp-correct-anim', 300);
-        animCall("#rspc", 'counter-anim', 200);
+        animCall("#rsp-correct", 'counter-anim', 200);
         correct++;
     }
     else {
@@ -206,7 +206,7 @@ function processAnswer(answerSubmitted) {
             document.getElementById("rsp").innerHTML = "Incorrect. The correct answer was " + terms[answer];
         }
         animCall("#rsp", 'rsp-incorrect-anim', 300);
-        animCall("#rspi", 'counter-anim', 200);
+        animCall("#rsp-incorrect", 'counter-anim', 200);
         incorrect++;
     }
     document.getElementById("rsp-correct").innerHTML = correct;

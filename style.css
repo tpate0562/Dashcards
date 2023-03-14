@@ -330,7 +330,7 @@ select optgroup {
 
 @keyframes scorescale {
     0% {transform: scale(1.2)}
-    100% {transofrm: scale(1.0)}
+    100% {transform: scale(1.0)}
 }
 
 #question, #rsp {
