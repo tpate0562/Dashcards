@@ -307,30 +307,25 @@ select optgroup {
     align-items: center;
     justify-content: center;
     font-family: "Inter";
-    font-size: 36px;
+    font-size: 22px;
     color: #ffffff;
 }
 
-/* ANIMATIONS */
-
 #rsp-correct, #rsp-incorrect {
-    margin: 20px;
+    display: inline-block;
+    margin-right: 20px;
 }
 .ttf {
+    padding: 0;
     display: flex;
     justify-content: center;
     font-family: "Inter";
     color: #ffffff;
-    font-size: 40px;
+    font-size: 24px;
 }
 .counter-anim {
     animation: scorescale 0.2s 1;
     animation-timing-function: ease-out;
-}
-
-@keyframes scorescale {
-    0% {transform: scale(1.2)}
-    100% {transform: scale(1.0)}
 }
 
 #question, #rsp {
@@ -340,6 +335,15 @@ select optgroup {
     font-family: "Inter";
     color: #ffffff;
 }
+
+/* ANIMATIONS */
+
+@keyframes scorescale {
+    0% {transform: scale(1.2)}
+    100% {transform: scale(1.0)}
+}
+
+
 
 .rsp-correct-anim {
     animation: correctflash 0.3s 1;

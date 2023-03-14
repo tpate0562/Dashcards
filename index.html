@@ -95,15 +95,15 @@
             <input type="text" id="write-answer" autocomplete="off" placeholder="Write Answer">
             <button class="btn" id="writebutton" onclick="writeSubmit()">Answer</button>
         </div>
-        <div id="stats">
+        <div id="stats" style="display: none">
             <h4 id="rsp"></h4>
             <div class="counter">
-                <h4 id="rsp-correct"></h4>
-                <h4 id="rsp-incorrect"></h4>
-                <h4 id="answeraccuracy"></h4>
+                <h2>Correct: <span id="rsp-correct"></span></h2>
+                <h2>Incorrect: <span id="rsp-incorrect"></span></h2>
+                <h2 id="answeraccuracy"></h2>
             </div>
             <div class="ttf">
-                <h4 id="ttf"></h4>
+                <h2 id="ttf"></h2>
             </div>
         </div>
     </div>
