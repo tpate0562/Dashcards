@@ -6,6 +6,7 @@
     --dashcards-orange: #ffb444;
 }
 
+html { scroll-behavior: smooth; }
 html, body { height: 100%; }
 
 body {
@@ -390,7 +391,6 @@ createdeck.html-SPECIFIC STYLES GO DOWN HERE. I know it's probably a bad idea to
 }
 
 #deck-input > input[type=text] {
-    
     flex-basis: 40%;
 }
 
@@ -398,6 +398,20 @@ createdeck.html-SPECIFIC STYLES GO DOWN HERE. I know it's probably a bad idea to
     position: fixed;
     bottom: 0;
     right: 0;
+}
+
+#create-error {
+    display: block;
+    text-align: center;
+    font-family: "Inter";
+    font-size: 18px;
+    color: #ffffff;
+}
+
+#create-error span {
+    padding: 0.3em;
+    background-color: #ff3029;
+    border: 4px solid #ff3029;
 }
 
 ::placeholder {
