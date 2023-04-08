@@ -16,7 +16,7 @@ let trailingTwentyFivePosition = totalAnswered % 25;
 let trailingTwentyFiveDenominator = 0;
 let summationTTF = 0;
 let inputMode = 0;
-let quizStarted = false; //hehe push
+let quizStarted = false;
 
 function startQuiz() {
     quizStarted = true;
