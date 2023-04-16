@@ -111,7 +111,11 @@ function resetQuiz() {
     trailingTwentyFivePosition = totalAnswered % 25;
     trailingTwentyFiveDenominator = 0;
     summationTTF = 0;
-
+    questionOrder.length = definitions.length;
+    for (let a = 0; a < questionOrder.length; a++){
+        questionOrder[a] = a;
+    }
+    shuffle(questionOrder);
     quizStarted = false;
     document.getElementById("startprompt").style.display = "none";
     document.getElementById("question").style.display = "none";
