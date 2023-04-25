@@ -323,10 +323,6 @@ select optgroup {
     color: #ffffff;
     font-size: 24px;
 }
-.counter-anim {
-    animation: scorescale 0.2s 1;
-    animation-timing-function: ease-out;
-}
 
 #question, #rsp {
     /*display: flex;*/
@@ -337,6 +333,11 @@ select optgroup {
 }
 
 /* ANIMATIONS */
+
+.counter-anim {
+    animation: scorescale 0.2s 1;
+    animation-timing-function: ease-out;
+}
 
 @keyframes scorescale {
     0% {transform: scale(1.2)}
