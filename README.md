@@ -1,4 +1,4 @@
-# ![Dashcards Favicon](logo.png) What is Dashcards?
+# ![Dashcards Favicon](favicon-32x32.png) What is Dashcards?
 
 
 
